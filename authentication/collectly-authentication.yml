@@ -1,0 +1,31 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.collectly.co/
+docs: https://docs.collectly.co/
+summary:
+  types: [http]
+  scheme: bearer
+  bearer_format: JWT
+  oauth2_flows: []
+  api_key_in: []
+schemes:
+  - name: partnerJWT
+    type: http
+    scheme: bearer
+    bearer_format: JWT
+    description: >-
+      Collectly's Partners API requires a JSON Web Token (JWT) on every request.
+      The partner mints the token from two credentials issued by Collectly:
+      COMPANY_ID and COMPANY_SECRET (hex strings without hyphens). The signed
+      token is sent in the Authorization header on every request.
+    location: header
+    header: Authorization
+    credentials:
+      - name: COMPANY_ID
+        format: hex string (no hyphens)
+      - name: COMPANY_SECRET
+        format: hex string (no hyphens)
+    notes:
+      - A separate patient JWT can be minted to log a patient into the hosted
+        patient portal / embedded pages (see conventions + components artifacts).
+    sources: [docs.collectly.co]
