@@ -1,0 +1,19 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.collectly.co/
+versioning:
+  scheme: uri-path
+  current: v1
+  base_path: /api/partners/v1
+  docs: https://docs.collectly.co/
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+  note: No public deprecation/sunset policy found.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+deprecated_operations: []
+notes:
+  - No dedicated status page or deprecation policy was found on the public site (probed 2026-07-18).

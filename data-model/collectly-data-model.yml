@@ -1,0 +1,48 @@
+generated: '2026-07-18'
+method: derived
+source: https://docs.collectly.co/llms.txt (resource paths) + docs.collectly.co resource index
+summary: >-
+  Entity-relationship graph derived from the Partners API resource hierarchy.
+  Everything is scoped under a practice; patients are the billing subject and
+  carry statements, payments, insurance policies, appointments, and subscriptions.
+  Derived from documented resource paths; field-level ids not fully published.
+entities:
+  - name: practice
+    root: true
+    description: Top-level tenant; all resources are nested under /practices/{practice_id}.
+  - name: patient
+    description: The individual being billed.
+  - name: provider
+    description: A rendering/billing provider within a practice.
+  - name: location
+    description: A service location within a practice.
+  - name: appointment
+    description: A patient appointment/encounter.
+  - name: insurance_company
+    description: A payer reference.
+  - name: insurance_policy
+    description: Links a patient to an insurance company (member id, priority, copay).
+  - name: statement
+    description: A patient billing statement.
+  - name: payment
+    description: A payment made against a statement/balance.
+  - name: refund
+    description: A refund issued against a payment.
+  - name: subscription
+    description: A patient recurring-payment plan (PENDING/active/cancelled).
+relationships:
+  - {from: patient, type: belongs_to, to: practice, via: practice_id}
+  - {from: provider, type: belongs_to, to: practice, via: practice_id}
+  - {from: location, type: belongs_to, to: practice, via: practice_id}
+  - {from: appointment, type: belongs_to, to: practice, via: practice_id}
+  - {from: appointment, type: belongs_to, to: patient, via: patient_id}
+  - {from: insurance_policy, type: belongs_to, to: patient, via: patient_id}
+  - {from: insurance_policy, type: belongs_to, to: insurance_company, via: insurance_company_id}
+  - {from: statement, type: belongs_to, to: patient, via: patient_id}
+  - {from: payment, type: belongs_to, to: statement, via: statement_id}
+  - {from: refund, type: belongs_to, to: payment, via: payment_id}
+  - {from: subscription, type: belongs_to, to: patient, via: patient_id}
+  - {from: patient, type: has_many, to: insurance_policy}
+  - {from: patient, type: has_many, to: statement}
+  - {from: patient, type: has_many, to: subscription}
+  - {from: patient, type: has_many, to: appointment}

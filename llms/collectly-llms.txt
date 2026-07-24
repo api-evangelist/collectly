@@ -1,0 +1,26 @@
+# Collectly API Documentation
+
+> Documentation for Collectly API
+
+## Guides
+- [Embedding Collectly's patients page](https://docs.collectly.co/docs/embedding-collectlys-patient-page.md): The quickest way to show patients' dashboard hosted on Collectly
+- [Integration of patient portal with your intake workflow](https://docs.collectly.co/docs/log-in-the-patient-portal-via-patient-jwt.md): How to create the patient JWT token and create the link
+- [Subscriptions](https://docs.collectly.co/docs/subscriptions.md)
+- [Implementation guide](https://docs.collectly.co/docs/implementation-guide.md)
+- [IFrame subscriptions references](https://docs.collectly.co/docs/iframe-subscriptions-references.md)
+
+## API Reference
+- [/practices/{practice_id}/appointments](https://docs.collectly.co/reference/get_practices-practice-id-appointments.md)
+- [/practices/{practice_id}/appointments](https://docs.collectly.co/reference/post_practices-practice-id-appointments.md)
+- [/practices/{practice_id}/appointments/{appointments}](https://docs.collectly.co/reference/get_practices-practice-id-appointments-appointments.md)
+- [Update a resource.](https://docs.collectly.co/reference/patch_practices-practice-id-appointments-appointments.md): Update a resource.
+- [List insurance policies](https://docs.collectly.co/reference/get_practices-practice-id-insurance-policies.md): Retrieve a list of patient insurance policies. Can be filtered by parameters such as patient_id to view specific coverage details.
+- [Create an insurance policy](https://docs.collectly.co/reference/post_practices-practice-id-insurance-policies.md): Create a new insurance policy record linking a patient to an insurance company, including member ID, priority, and copay details.
+- [Delete an insurance policy](https://docs.collectly.co/reference/delete_practices-practice-id-insurance-policies-insurance-policies.md): Remove an insurance policy from a patient's profile. This will archive the policy to preserve historical billing integrity.
+- [List insurance policies](https://docs.collectly.co/reference/get_practices-practice-id-insurance-policies-insurance-policies.md): Retrieve a list of patient insurance policies. Can be filtered by parameters such as patient_id to view specific coverage details.
+- [Update an insurance policy](https://docs.collectly.co/reference/patch_practices-practice-id-insurance-policies-insurance-policies.md): Modify an existing insurance policy. Only the fields provided in the payload will be updated (e.g., updating a priority or member ID).
+- [Retrieve](https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-subscriptions.md): Retrieve a list of patient subscriptions.
+- [Create](https://docs.collectly.co/reference/post_practices-practice-id-patients-patient-id-subscriptions.md): Create a new patient subscription with PENDING status.
+- [Cancel](https://docs.collectly.co/reference/delete_practices-practice-id-patients-patient-id-subscriptions-subscriptions.md): Cancel an existing subscription.
+- [Retrieve](https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-subscriptions-subscriptions.md): Retrieve a list of patient subscriptions.
+- [Update](https://docs.collectly.co/reference/patch_practices-practice-id-patients-patient-id-subscriptions-subscriptions.md): Modify an existing subscription.

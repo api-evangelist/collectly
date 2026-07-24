@@ -1,0 +1,21 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.collectly.co/
+type: Webhooks
+spec_type: none
+summary: >-
+  Collectly's Partners API documents an outbound webhook surface for partners to
+  receive event notifications (e.g. payment / statement / subscription lifecycle
+  events). Webhook endpoints are configured in the Collectly environment; a
+  webhooks configuration surface is exposed under the environment host
+  (e.g. https://sandbox.collectly.co/webhooks). No machine-readable AsyncAPI
+  document is published, so the concrete event catalog is not enumerated here to
+  avoid fabrication.
+webhooks:
+  configuration_url: https://sandbox.collectly.co/webhooks
+  transport: HTTPS POST callbacks to partner-registered URLs
+  docs: https://docs.collectly.co/
+events: []
+notes:
+  - Event names/payloads are not published as a spec; capture verbatim in a later
+    round if Collectly publishes an event catalog or AsyncAPI document.

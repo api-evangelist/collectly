@@ -1,0 +1,43 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.collectly.co/
+docs: https://docs.collectly.co/
+api: Collectly Partners API
+authentication:
+  style: JWT bearer token in the Authorization header
+  detail: Partner-minted JWT signed with COMPANY_ID + COMPANY_SECRET
+  ref: authentication/collectly-authentication.yml
+resource_model:
+  style: REST, practice-scoped resource hierarchy
+  base_path: /api/partners/v1
+  hierarchy: /practices/{practice_id}/...  (patients, appointments, insurance-policies, providers, locations, subscriptions, statements, payments, refunds)
+  http_methods: [GET, POST, PATCH, DELETE]
+environments:
+  separation: test-vs-live (separate sandbox and production hosts)
+  sandbox_base: https://sandbox.collectly.co/api/partners/v1
+  production_base: https://app.collectly.co/api/partners/v1
+  note: Sandbox access is required before building against production.
+  ref: sandbox/collectly-sandbox.yml
+versioning:
+  scheme: uri-path
+  current: v1
+  ref: lifecycle/collectly-lifecycle.yml
+webhooks:
+  supported: true
+  ref: asyncapi/collectly-webhooks.yml
+embedding:
+  supported: true
+  detail: Hosted patient dashboard page and iframe subscription components can be embedded via a patient JWT.
+  ref: components/collectly-components.yml
+idempotency:
+  supported: unknown
+  note: No idempotency-key header or idempotency contract is documented in the public docs; not asserted.
+pagination:
+  style: unknown
+  note: Pagination scheme not confirmed from the public docs/llms.txt index; not asserted.
+error_envelope:
+  style: unknown
+  note: A structured error/problem envelope was not confirmed from the public docs; not asserted.
+rate_limits:
+  documented: false
+  note: The documentation host (ReadMe) rate-limits anonymous crawlers, but no API rate-limit policy is published.

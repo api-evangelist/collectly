@@ -1,0 +1,32 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.collectly.co/ + https://www.collectly.co/security-compliance
+standards:
+  - id: rest
+    conforms: true
+    evidence: Practice-scoped REST resources with GET/POST/PATCH/DELETE over /api/partners/v1.
+  - id: jwt-bearer-auth
+    conforms: true
+    evidence: JWT bearer token required in the Authorization header on every request.
+  - id: oauth2
+    conforms: false
+    evidence: Auth is a partner-minted JWT (COMPANY_ID/COMPANY_SECRET), not an OAuth 2.0 flow.
+  - id: webhooks
+    conforms: true
+    evidence: Outbound webhook event notifications documented.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: No application/problem+json error envelope confirmed in public docs.
+  - id: hipaa
+    conforms: true
+    evidence: Operates as a HIPAA Business Associate (security-compliance page).
+  - id: hitrust-i1
+    conforms: true
+    evidence: HITRUST i1 Validated with annual third-party assessment.
+  - id: soc2-type2
+    conforms: true
+    evidence: SOC 2 Type 2 (Security, Availability, Confidentiality).
+  - id: pci-dss-level1
+    conforms: true
+    evidence: PCI DSS Level 1 (via certified payment processor).
+compliance_page: https://www.collectly.co/security-compliance

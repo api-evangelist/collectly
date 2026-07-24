@@ -1,27 +1,121 @@
 aid: collectly
 name: Collectly
-description: 'Collectly is a company surfaced as a portfolio company of sapphire-ventures and added to
-  the API Evangelist network as a stub for enrichment. Sector: healthtech. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Collectly is a healthtech company providing AI-powered revenue cycle
+  automation for healthcare providers, spanning the full patient financial
+  journey from insurance eligibility and cost estimation through point-of-service
+  and post-visit payment collection. Its platform includes pre-visit intake
+  automation, AI eligibility and benefits checks, AI cost estimation,
+  point-of-service payments, post-visit billing automation, a payments platform,
+  and an AI voice agent (Billie) for patient billing support. Collectly exposes a
+  Partners API (JWT-authenticated, practice-scoped REST) covering practices,
+  patients, appointments, providers, locations, insurance companies and policies,
+  statements, payments, refunds, and subscriptions, plus embeddable patient
+  portal / iframe components and outbound webhooks. Backed by Sapphire Ventures.
 url: https://raw.githubusercontent.com/api-evangelist/collectly/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.prod.website-files.com/69ba35b83a30189f9f939f89/69c40b30d5c3530eda3fe299_OpenGraph_Homepage_OG_1200x627px_2_BW20260325.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - sapphire-ventures
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: enriched-from-developer-docs
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
 - Healthtech
-apis: []
+- Revenue Cycle Management
+- Patient Payments
+- Medical Billing
+- Payments
+- Healthcare
+- Insurance Eligibility
+apis:
+- name: Collectly Partners API
+  description: >-
+    JWT-authenticated, practice-scoped REST API for integrating patient billing
+    and payment workflows — practices, patients, appointments, providers,
+    locations, insurance companies and policies, statements, payments, refunds,
+    and subscriptions — plus embeddable patient portal components and webhooks.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - Patient Payments
+  - Medical Billing
+  - Revenue Cycle Management
+  properties:
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: MCPServer
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DeveloperPortal
+  url: https://docs.collectly.co/
+- type: Documentation
+  url: https://docs.collectly.co/
+- type: APIReference
+  url: https://docs.collectly.co/reference
+- type: GettingStarted
+  url: https://docs.collectly.co/docs/implementation-guide
+- type: Blog
+  url: https://www.collectly.co/blog
+- type: Login
+  url: https://app.collectly.co/login
+- type: TermsOfService
+  url: https://www.collectly.co/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.collectly.co/privacy-policy
+- type: Compliance
+  url: https://www.collectly.co/security-compliance
+- type: TrustCenter
+  url: security/collectly-trust-center.yml
+- type: DomainSecurity
+  url: security/collectly-domain-security.yml
+- type: LLMsTxt
+  url: llms/collectly-llms.txt
 - type: Website
   url: https://www.collectly.co/
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

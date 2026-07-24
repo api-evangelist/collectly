@@ -1,0 +1,22 @@
+generated: '2026-07-18'
+method: searched
+probe: false
+source: https://www.collectly.co/security-compliance
+url: https://www.collectly.co/security-compliance
+certifications:
+  - HITRUST i1 Validated
+  - SOC 2 Type 2
+  - PCI DSS Level 1
+  - HIPAA (Business Associate)
+detail:
+  hitrust: HITRUST i1 Validated status with annual third-party assessment covering encryption, access controls, monitoring, vulnerability management, and incident response.
+  soc2: Compliant with SOC 2's Security, Availability, and Confidentiality criteria (encryption, access management, vendor risk controls).
+  pci: Card data protected end-to-end (TLS in transit, encryption/tokenization) via a PCI DSS Level 1-certified payment processor.
+  hipaa: Operates as a HIPAA Business Associate.
+evidence:
+  - source: https://www.collectly.co/security-compliance
+    keywords: [hitrust i1, soc 2 type 2, pci dss level 1, hipaa]
+notes:
+  - Compliance/security posture is published on a marketing page; there is no
+    dedicated trust portal subdomain, security.txt, disclosure policy, or bug
+    bounty program (probed 2026-07-18, none found).

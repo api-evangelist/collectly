@@ -1,0 +1,21 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.collectly.co/
+api: Collectly Partners API
+summary: >-
+  Collectly provides a dedicated sandbox environment that partners must be
+  granted access to before building. Sandbox and production are separated by
+  host. No published magic/test card numbers or fixture values were found in the
+  public docs, so none are invented here.
+environments:
+  - name: sandbox
+    base_url: https://sandbox.collectly.co/api/partners/v1
+    host: https://sandbox.collectly.co
+    webhooks: https://sandbox.collectly.co/webhooks
+    access: Requires sandbox credentials (COMPANY_ID / COMPANY_SECRET) issued by Collectly.
+  - name: production
+    base_url: https://app.collectly.co/api/partners/v1
+    host: https://app.collectly.co
+test_values:
+  cards: []
+  note: No public test-card / fixture catalog is published; capture verbatim if Collectly documents one.

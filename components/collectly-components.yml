@@ -1,0 +1,24 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.collectly.co/
+api: Collectly Partners API
+summary: >-
+  Collectly ships embeddable, client-side surfaces so partners can present the
+  patient billing/payments experience inside their own product without building
+  UI. These are hosted/prebuilt surfaces authenticated with a patient JWT,
+  distinct from server-side SDKs.
+families:
+  - name: Patient dashboard (hosted patient page)
+    kind: embedded hosted page
+    description: The quickest way to show a patient's Collectly dashboard, hosted by Collectly and embedded in the partner's workflow.
+    auth: patient JWT
+    docs: https://docs.collectly.co/docs/embedding-collectlys-patient-page.md
+  - name: Patient portal login (patient JWT)
+    kind: embedded portal / deep link
+    description: Log a patient into the Collectly patient portal via a partner-minted patient JWT to integrate it with an intake workflow.
+    auth: patient JWT
+    docs: https://docs.collectly.co/docs/log-in-the-patient-portal-via-patient-jwt.md
+  - name: IFrame subscriptions
+    kind: iframe component
+    description: Embeddable iframe for patient subscription (recurring payment plan) flows.
+    docs: https://docs.collectly.co/docs/iframe-subscriptions-references.md

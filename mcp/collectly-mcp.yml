@@ -1,0 +1,50 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: https://docs.collectly.co/llms.txt (documented Partners API operations)
+summary: >-
+  No official hosted/remote Collectly MCP server was found (no npm
+  @modelcontextprotocol package, no mcp registry entry). This is a DERIVED
+  candidate tool list mapped from documented Partners API operations, to seed a
+  future MCP surface. Not an official Collectly product.
+server:
+  name: collectly
+  transport: http
+  url: null
+tools:
+  - name: list_appointments
+    description: List appointments for a practice.
+    source_operation: GET /practices/{practice_id}/appointments
+  - name: create_appointment
+    description: Create an appointment for a practice.
+    source_operation: POST /practices/{practice_id}/appointments
+  - name: get_appointment
+    description: Retrieve a single appointment.
+    source_operation: GET /practices/{practice_id}/appointments/{appointment_id}
+  - name: update_appointment
+    description: Update an appointment.
+    source_operation: PATCH /practices/{practice_id}/appointments/{appointment_id}
+  - name: list_insurance_policies
+    description: Retrieve a list of patient insurance policies.
+    source_operation: GET /practices/{practice_id}/insurance-policies
+  - name: create_insurance_policy
+    description: Create an insurance policy linking a patient to an insurance company.
+    source_operation: POST /practices/{practice_id}/insurance-policies
+  - name: update_insurance_policy
+    description: Update an existing insurance policy.
+    source_operation: PATCH /practices/{practice_id}/insurance-policies/{insurance_policy_id}
+  - name: delete_insurance_policy
+    description: Archive/remove an insurance policy.
+    source_operation: DELETE /practices/{practice_id}/insurance-policies/{insurance_policy_id}
+  - name: list_subscriptions
+    description: Retrieve a list of patient subscriptions.
+    source_operation: GET /practices/{practice_id}/patients/{patient_id}/subscriptions
+  - name: create_subscription
+    description: Create a new patient subscription with PENDING status.
+    source_operation: POST /practices/{practice_id}/patients/{patient_id}/subscriptions
+  - name: update_subscription
+    description: Modify an existing subscription.
+    source_operation: PATCH /practices/{practice_id}/patients/{patient_id}/subscriptions/{subscription_id}
+  - name: cancel_subscription
+    description: Cancel an existing subscription.
+    source_operation: DELETE /practices/{practice_id}/patients/{patient_id}/subscriptions/{subscription_id}

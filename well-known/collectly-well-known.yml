@@ -1,0 +1,35 @@
+generated: '2026-07-18'
+method: searched
+source: live probes 2026-07-18
+summary: >-
+  No RFC-standard /.well-known discovery documents are published. app/pay/sandbox
+  hosts return SPA soft-404s (text/html catch-all) for openid-configuration,
+  oauth-authorization-server, and api-catalog rather than real JSON documents;
+  www and docs return hard 404s. No security.txt. Recorded as honest negative.
+found: 0
+hosts:
+  - host: https://www.collectly.co
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+  - host: https://app.collectly.co
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 200, note: SPA soft-404 (text/html), not a real document}
+      - {path: /.well-known/oauth-authorization-server, status: 200, note: SPA soft-404 (text/html), not a real document}
+      - {path: /.well-known/api-catalog, status: 200, note: SPA soft-404 (text/html), not a real document}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+  - host: https://sandbox.collectly.co
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 200, note: SPA soft-404 (text/html), not a real document}
+      - {path: /.well-known/oauth-authorization-server, status: 200, note: SPA soft-404 (text/html), not a real document}
+      - {path: /.well-known/api-catalog, status: 200, note: SPA soft-404 (text/html), not a real document}
+  - host: https://docs.collectly.co
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
