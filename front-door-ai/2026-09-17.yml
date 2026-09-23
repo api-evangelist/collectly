@@ -1,0 +1,29 @@
+# Front Door AI Index — collectly — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: collectly
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.collectly.co
+  final_host: www.collectly.co
+  ownership: own
+  owner: collectly
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 25
+  host_score: 25
+  density: 28.9
+  words: 865
+  tiers:
+    agentic: 7
+    core: 18
+    model: 0
+  ambiguous: 20
+  top_terms:
+    AI: 18
+    agent: 14
+    AI agent: 7
+    automation: 5
+    smart: 1
