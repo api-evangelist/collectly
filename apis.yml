@@ -1,18 +1,16 @@
 aid: collectly
+
 name: Collectly
-description: >-
-  Collectly is a healthtech company providing AI-powered revenue cycle
-  automation for healthcare providers, spanning the full patient financial
-  journey from insurance eligibility and cost estimation through point-of-service
-  and post-visit payment collection. Its platform includes pre-visit intake
-  automation, AI eligibility and benefits checks, AI cost estimation,
-  point-of-service payments, post-visit billing automation, a payments platform,
-  and an AI voice agent (Billie) for patient billing support. Collectly exposes a
-  Partners API (JWT-authenticated, practice-scoped REST) covering practices,
-  patients, appointments, providers, locations, insurance companies and policies,
-  statements, payments, refunds, and subscriptions, plus embeddable patient
-  portal / iframe components and outbound webhooks. Backed by Sapphire Ventures.
+
+description: Collectly is a healthtech company providing AI-powered revenue cycle automation for healthcare providers, spanning the full patient
+  financial journey from insurance eligibility and cost estimation through point-of-service and post-visit payment collection. Its platform includes
+  pre-visit intake automation, AI eligibility and benefits checks, AI cost estimation, point-of-service payments, post-visit billing automation,
+  a payments platform, and an AI voice agent (Billie) for patient billing support. Collectly exposes a Partners API (JWT-authenticated, practice-scoped
+  REST) covering practices, patients, appointments, providers, locations, insurance companies and policies, statements, payments, refunds, and
+  subscriptions, plus embeddable patient portal / iframe components and outbound webhooks. Backed by Sapphire Ventures.
+
 url: https://raw.githubusercontent.com/api-evangelist/collectly/refs/heads/main/apis.yml
+
 deliveryModel:
   model: saas
   open_source: false
@@ -24,6 +22,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: unknown
   onboarding: unknown
@@ -38,19 +37,32 @@ accessModel:
   - sandbox
   generated: '2026-09-03'
   method: derived
+
 image: https://cdn.prod.website-files.com/69ba35b83a30189f9f939f89/69c40b30d5c3530eda3fe299_OpenGraph_Homepage_OG_1200x627px_2_BW20260325.png
+
 x-type: company
+
 x-source: vc-portfolio
+
 x-backed-by:
 - sapphire-ventures
+
 x-tier: enriched
+
 x-tier-reason: enriched-from-developer-docs
+
 specificationVersion: '0.23'
+
 created: '2026-07-17'
+
 modified: '2026-07-18'
+
 x-docs-platform: readme
+
 x-docs-platform-confidence: high
+
 x-docs-platform-checked: 2026-09-24
+
 tags:
 - Company
 - Health Tech
@@ -60,6 +72,7 @@ tags:
 - Payments
 - Healthcare
 - Insurance Eligibility
+
 tags_raw:
 - Company
 - Healthtech
@@ -69,51 +82,30 @@ tags_raw:
 - Payments
 - Healthcare
 - Insurance Eligibility
-apis:
-- name: Collectly Partners API
-  description: >-
-    JWT-authenticated, practice-scoped REST API for integrating patient billing
-    and payment workflows — practices, patients, appointments, providers,
-    locations, insurance companies and policies, statements, payments, refunds,
-    and subscriptions — plus embeddable patient portal components and webhooks.
-  humanURL: https://docs.collectly.co/
-  baseURL: https://app.collectly.co/api/partners/v1
-  tags:
-  - Patient Payments
-  - Medical Billing
-  - Revenue Cycle Management
-  properties:
-  - type: Documentation
-    url: https://docs.collectly.co/
-  - type: APIReference
-    url: https://docs.collectly.co/reference
-  - type: Authentication
-    url: authentication/collectly-authentication.yml
-  - type: Conventions
-    url: conventions/collectly-conventions.yml
-  - type: Webhooks
-    url: asyncapi/collectly-webhooks.yml
-  - type: X-MCPServerCandidate
-    url: mcp/collectly-mcp.yml
-    note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
-  - type: Sandbox
-    url: sandbox/collectly-sandbox.yml
-  - type: Components
-    url: components/collectly-components.yml
-  - type: DataModel
-    url: data-model/collectly-data-model.yml
-  - type: Lifecycle
-    url: lifecycle/collectly-lifecycle.yml
-  - type: Conformance
-    url: conformance/collectly-conformance.yml
-  - type: LLMsTxt
-    url: llms/collectly-llms.txt
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: AgenticAccess
+  url: agentic-access/collectly-agentic-access.yml
+- type: Spectral
+  url: rules/collectly-rules.yml
+- type: JSONLD
+  url: json-ld/collectly-context.jsonld
+- type: Vocabulary
+  url: vocabulary/collectly-vocabulary.yml
+- type: Deprecation
+  url: lifecycle/collectly-lifecycle.yml
+- type: Hosts
+  url: hosts/collectly-hosts.yml
+- type: Vendors
+  url: vendors/collectly-vendors.yml
+- type: StatusPage
+  url: https://status.collectly.co/
 - type: DeveloperPortal
   url: https://docs.collectly.co/
 - type: Documentation
@@ -140,8 +132,70 @@ common:
   url: llms/collectly-llms.txt
 - type: Website
   url: https://www.collectly.co/
+
+apis:
+- name: Collectly Partners API
+  description: JWT-authenticated, practice-scoped REST API for integrating patient billing and payment workflows — practices, patients, appointments,
+    providers, locations, insurance companies and policies, statements, payments, refunds, and subscriptions — plus embeddable patient portal
+    components and webhooks.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - Patient Payments
+  - Medical Billing
+  - Revenue Cycle Management
+  properties:
+  - url: openapi/collectly-partners1-openapi.yml
+    type: OpenAPI
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+    note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published
+      API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting
+      the artifact-type surfaces with a server that does not exist.'
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+  aid: collectly:collectly-partners-api
+
 x-enrichment:
   date: '2026-07-19'
   status: backfilled
   pass: local-v1
   note: backfilled from .gitignore signal + verified work evidence
+
+x-readme-harvest:
+  date: '2026-10-14'
+  ops: 71
+  tool: harvest-readme-openapi.py
+  portal: https://docs.collectly.co

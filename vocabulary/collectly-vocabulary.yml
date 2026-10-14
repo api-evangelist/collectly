@@ -1,0 +1,415 @@
+generated: '2026-10-14'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/collectly-partners1-openapi.yml
+vocabulary:
+  name: Collectly Domain Vocabulary
+  description: 'Terms declared by Collectly''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-14'
+  terms:
+  - term: Appointment
+    definition: 'Object declared by the contract with fields: appointment_type, billing_provider_npi, client_id, collectly_patient_id, collectly_primary_insurance_policy_id,
+      collectly_secondary_insurance_policy_id, company_id, created_at, expected_copay_amount, external_billing_provider_id, external_billing_provider_name,
+      external_id. (15 more)'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/Appointment
+  - term: InsurancePolicy
+    definition: 'Object declared by the contract with fields: clearinghouse_copay, company_id, created_at, external_id, external_insurance_company_id,
+      extra, id, in_network_effective_location_ids, is_archived, is_external, is_manually_verified, is_photos_exist_in_ehr. (8 more)'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/InsurancePolicy
+  - term: PartnersAPISubscription
+    definition: 'Object declared by the contract with fields: amount, billing_provider_id, cadence, client_id, company_id, cpt_code, diagnosis_code,
+      diagnosis_code_type, id, location_id, name, patient_id. (6 more)'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/PartnersAPISubscription
+  - term: Company
+    definition: 'Object declared by the contract with fields: address, city, clearinghouse, company_name, company_uid, country_code, executive_name,
+      logo_url, state, tax_id, zip_code.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/Company
+  - term: PartnerLogin
+    definition: 'Object declared by the contract with fields: company_secret, company_uid.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/PartnerLogin
+  - term: PatientLookup
+    definition: 'Object declared by the contract with fields: client_id, collectly_patient_id, patient_external_id.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/PatientLookup
+  - term: PatientForm
+    definition: 'Object declared by the contract with fields: card, card_id, client_id, company, created_at, data, date_of_birth, email, first_name,
+      form_type, guarantor_first_name, guarantor_last_name. (7 more)'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/PatientForm
+  - term: AddressBase
+    definition: 'Object declared by the contract with fields: city, country_short, line2, state, status, street, zip_code.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/AddressBase
+  - term: Client
+    definition: 'Object declared by the contract with fields: address, created_at, id, logo_url, modified_at, name, phone, processed_at, tax_id,
+      timezone, voice_ai_hours_end, voice_ai_hours_start. (3 more)'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/Client
+  - term: InsuranceCompany
+    definition: 'Object declared by the contract with fields: collectly_id, created_at, id, name, practice_id.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/InsuranceCompany
+  - term: Location
+    definition: 'Object declared by the contract with fields: address, collectly_id, created_at, id, modified_at, name, practice_id.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/Location
+  - term: Address
+    definition: 'Object declared by the contract with fields: city, country, country_short, line2, name, state, status, street, street_number,
+      text, zip_code.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/Address
+  - term: BillingCycle
+    definition: 'Object declared by the contract with fields: billing_rule_id, billing_rule_name, last_notification_time, last_notification_type,
+      paused_by_patient_reply, status.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/BillingCycle
+  - term: Email
+    definition: 'Object declared by the contract with fields: additional_priorities, all_priorities, created_at, email, enabled, id, priority,
+      source.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/Email
+  - term: Guarantor
+    definition: 'Object declared by the contract with fields: address, collectly_id, created_at, data, date_of_birth, external_id, first_name,
+      id, last_name, middle_name, modified_at, practice_id. (1 more)'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/Guarantor
+  - term: InsurancePolicy1
+    definition: 'Object declared by the contract with fields: collectly_id, id, insurance_company_collectly_id, is_archived, member_id, name,
+      patient_collectly_id, priority.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/InsurancePolicy1
+  - term: Patient
+    definition: 'Object declared by the contract with fields: address, card_auth_on_file, collectly_id, created_at, current_balance, date_of_birth,
+      emails, external_balance, external_refnum, first_name, gender, guarantor. (14 more)'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/Patient
+  - term: Phone
+    definition: 'Object declared by the contract with fields: additional_priorities, all_priorities, blocked, carrier, created_at, enabled, id,
+      phone, priority, rcs_unavailable_until_at, source, type.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/Phone
+  - term: Tag
+    definition: 'Object declared by the contract with fields: id, name.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/Tag
+  - term: Patient_Checkout
+    definition: 'Object declared by the contract with fields: account_payments, auto_charge_enabled, bank_account_id, bank_account_mask, bank_account_name,
+      bank_account_subtype, bank_account_type, bank_id, bank_name, company, country, created_at. (24 more)'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/Patient_Checkout
+  - term: PaymentMethod
+    definition: 'Object declared by the contract with fields: collectly_id, customer_id, exp_month, exp_year, external_payment_method_id, last4,
+      name, patient_id, status, type.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/PaymentMethod
+  - term: CardStore
+    definition: 'Object declared by the contract with fields: auto_charge_enabled, card_type, country, exp_month, exp_year, is_credit_card, last4,
+      name, user_token.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/CardStore
+  - term: PaymentMethodStore
+    definition: 'Object declared by the contract with fields: data, type.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/PaymentMethodStore
+  - term: PaymentMethodCharge
+    definition: 'Object declared by the contract with fields: amount, copay_amount, type.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/PaymentMethodCharge
+  - term: PaymentPlan
+    definition: 'Object declared by the contract with fields: collectly_id, collectly_payment_method_id, created_at, installment, location_id,
+      n_installments, next_payment_date, payments_made, period_type, start_date, status, total_amount. (1 more)'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/PaymentPlan
+  - term: PaymentPlanRequest
+    definition: 'Object declared by the contract with fields: email, installment, location_id, n_installments, period_type, phone, start_date,
+      total_amount, type.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/PaymentPlanRequest
+  - term: Adjustment
+    definition: 'Object declared by the contract with fields: amount, group, reason.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/Adjustment
+  - term: Discount
+    definition: 'Object declared by the contract with fields: amount, description, external_id, valid_until.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/Discount
+  - term: ERALineItem
+    definition: 'Object declared by the contract with fields: adjustments, allowed, billed, paid, remark, service_code, service_date_end, service_date_start,
+      units.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/ERALineItem
+  - term: InsurancePayment
+    definition: 'Object declared by the contract with fields: adjustment, allowed_amount, coins_amount, company_external_id, date, deduct_amount,
+      external_id, extra, ins_paid, member_balance, withheld_amount.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/InsurancePayment
+  - term: InsurancePolicyState
+    definition: 'Object declared by the contract with fields: claim_adjustments, claim_status, claim_status_description, codes_description, line_items.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/InsurancePolicyState
+  - term: SnapshotAppointment
+    definition: 'Object declared by the contract with fields: external_id, id.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/SnapshotAppointment
+  - term: SnapshotData
+    definition: 'Object declared by the contract with fields: balance_past_120_days, payments, visits.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/SnapshotData
+  - term: SnapshotLocation
+    definition: 'Object declared by the contract with fields: data, external_id, id, name, tax_id.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/SnapshotLocation
+  - term: SnapshotPartner
+    definition: 'Object declared by the contract with fields: allowed_amount, billed_amount, created_at, data, id, ins_paid, modified_at, patient_id,
+      practice_id, pt_amount, pt_balance.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/SnapshotPartner
+  - term: SnapshotPayment
+    definition: 'Object declared by the contract with fields: allocations, amount, collectly_id, id, payment_type, post_date, source_payment_id.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/SnapshotPayment
+  - term: SnapshotPaymentAllocation
+    definition: 'Object declared by the contract with fields: amount, charge_id, id, visit_id.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/SnapshotPaymentAllocation
+  - term: SnapshotVisit
+    definition: 'Object declared by the contract with fields: adjustment, allowed_amount, appointment, billed_amount, billing_hold_reason, billing_hold_type,
+      billing_location, billing_provider, charges, collections_status, discounts, ehr_discounts. (21 more)'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/SnapshotVisit
+  - term: SnapshotVisitCharge
+    definition: 'Object declared by the contract with fields: adjustment, allowed_amount, billed_amount, description, id, ins_paid, note, procedure_code,
+      pt_adjustment, pt_amount, pt_balance, pt_paid. (1 more)'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/SnapshotVisitCharge
+  - term: VisitInsurancePolicy
+    definition: 'Object declared by the contract with fields: company_external_id, group_id, insurance_name, member_id, policy_external_id, priority,
+      state.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/VisitInsurancePolicy
+  - term: VisitProvider
+    definition: 'Object declared by the contract with fields: display_name, external_id, first_name, id, last_name.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/VisitProvider
+  - term: _Location
+    definition: 'Object declared by the contract with fields: collectly_id, id, name.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/_Location
+  - term: _Provider
+    definition: 'Object declared by the contract with fields: collectly_id, first_name, id, last_name.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/_Provider
+  - term: Allocation
+    definition: 'Object declared by the contract with fields: amount, charge_id, id, visit_id.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/Allocation
+  - term: Payment
+    definition: 'Object declared by the contract with fields: allocations, amount, collectly_id, collectly_payment_plan_id, collectly_source_payment_id,
+      copay_amount, created_at, id, modified_at, patient_id, payment_type, post_date. (2 more)'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/Payment
+  - term: Provider
+    definition: 'Object declared by the contract with fields: collectly_id, created_at, data, first_name, id, last_name, modified_at, npi, practice_id.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/Provider
+  - term: PaymentMethodStoreWithCollectlyId
+    definition: 'Object declared by the contract with fields: collectly_patient_id, data, type.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/PaymentMethodStoreWithCollectlyId
+  - term: UnmappedPatient
+    definition: 'Object declared by the contract with fields: collectly_id, created_at, first_name, id, last_name, modified_at, practice_id, status.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/UnmappedPatient
+  - term: ClientShort
+    definition: 'Object declared by the contract with fields: address, id, logo_url, name, phone, timezone, voice_ai_hours_end, voice_ai_hours_start,
+      work_hours_end, work_hours_start.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/ClientShort
+  - term: CompanyProfile
+    definition: 'Object declared by the contract with fields: address, allow_smart_retries, allow_users_edit_pp, auto_approve_rules, city, collectly_activated,
+      company_name, country_code, hide_access_codes, hide_appointments, hide_dashboard_user, id. (7 more)'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/CompanyProfile
+  - term: User
+    definition: 'Object declared by the contract with fields: active, allowed_clients, company, confirmed_at, created_at, email, external_id,
+      first_name, id, last_name, password, phone.'
+    tags:
+    - Object
+    source: openapi/collectly-partners1-openapi.yml#/components/schemas/User
+  - term: company
+    definition: 'Resource group in the contract; its operation GET /company: Get information about current company.'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: company_api_login
+    definition: 'Resource group in the contract; its operation POST /login: Get API token using COMPANY_UID and COMPANY_SECRET'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: patient_checkout__lookup
+    definition: 'Resource group in the contract; its operation POST /patient-lookup: Looks up collectly_patient_id patient by patient''s id in
+      the connected EHR.'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: patient_forms
+    definition: 'Resource group in the contract; its operation GET /patient_forms: Save and sign consent forms for patients.'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: practices
+    definition: 'Resource group in the contract; its operation GET /practices: Get/provide an information about practices.'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: appointments
+    definition: 'Resource group in the contract; its operation PATCH /practices/{practice_id}/appointments/{appointments}: Update a resource.'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: insurance_companies
+    definition: 'Resource group in the contract; its operation GET /practices/{practice_id}/insurance-companies: Get/provide an information about
+      insurance companies.'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: insurance_policies
+    definition: 'Resource group in the contract; its operation GET /practices/{practice_id}/insurance-policies: Retrieve a list of patient insurance
+      policies.'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: locations
+    definition: 'Resource group in the contract; its operation GET /practices/{practice_id}/locations: Get/provide an information about locations.'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: patients
+    definition: 'Resource group in the contract; its operation GET /practices/{practice_id}/patients: Get/provide an information about patients.'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: patient_checkout
+    definition: 'Resource group in the contract; its operation DELETE /practices/{practice_id}/patients/{patient_id}/checkout/{patient_checkout}:
+      Interrupt current patient''s checkout'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: payment_methods
+    definition: 'Resource group in the contract; its operation GET /practices/{practice_id}/patients/{patient_id}/payment-methods: Get patient
+      payment method(s)'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: payment_method_charge
+    definition: 'Resource group in the contract; its operation POST /practices/{practice_id}/patients/{patient_id}/payment-methods/{payment_methods}/charge:
+      Charge patient card'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: payment_plans
+    definition: 'Resource group in the contract; its operation GET /practices/{practice_id}/patients/{patient_id}/payment-plans: Retrieve a patient''s
+      payment plan or list of all payment plans'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: payment_plan_request
+    definition: 'Resource group in the contract; its operation POST /practices/{practice_id}/patients/{patient_id}/payment-plans/request: Send
+      link to the patient to subscribe for payment plan (request payment plan consent).'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: statements
+    definition: 'Resource group in the contract; its operation GET /practices/{practice_id}/patients/{patient_id}/statement: This endpoint is
+      an alternative data model where you do not need to push payments and allocations separately.'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: subscriptions
+    definition: 'Resource group in the contract; its operation GET /practices/{practice_id}/patients/{patient_id}/subscriptions: Retrieve a list
+      of patient subscriptions.'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: payments
+    definition: 'Resource group in the contract; its operation GET /practices/{practice_id}/payments: Get payments information.'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: providers
+    definition: 'Resource group in the contract; its operation GET /practices/{practice_id}/providers: Get/provide an information about providers.'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: unmapped_patients
+    definition: 'Resource group in the contract; its operation GET /practices/{practice_id}/unmapped-patients: Get/provide an information about
+      unmapped patients.'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: practices_info
+    definition: 'Resource group in the contract; its operation GET /practices_info: Get an information about practices by company key'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml
+  - term: users
+    definition: 'Resource group in the contract; its operation GET /users: Get/provide an information about users.'
+    tags:
+    - Resource Group
+    source: openapi/collectly-partners1-openapi.yml

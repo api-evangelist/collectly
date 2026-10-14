@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/collectly/main/json-schema/collectly-payment-method-schema.json",
+  "title": "PaymentMethod",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/collectly-partners1-openapi.yml#/components/schemas/PaymentMethod",
+  "properties": {
+    "collectly_id": {
+      "description": "Unique Collectly resource ID",
+      "readOnly": true,
+      "type": "string"
+    },
+    "customer_id": {
+      "description": "Payment method owner's ID in payment provider account (e.g. Stripe)",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "exp_month": {
+      "description": "Payment method expiration month number",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "exp_year": {
+      "description": "Payment method expiration year in YYYY format (e.g. 2024)",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "external_payment_method_id": {
+      "description": "Payment method ID in payment provider account. This can be the ID of a card or bank account etc.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "last4": {
+      "description": "Last four numbers of the payment method number",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "name": {
+      "description": "Display name",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "patient_id": {
+      "description": "Patient ID from your integration who owns the resource",
+      "type": "string"
+    },
+    "status": {
+      "description": "Payment method activity status. Only `active` payment methods can be used for charging",
+      "enum": [
+        "active",
+        "invalid",
+        "expired",
+        "one_time",
+        "no_consent",
+        "deleted"
+      ],
+      "type": "string"
+    },
+    "type": {
+      "description": "Card brand or bank account",
+      "enum": [
+        "bank_account",
+        "amex",
+        "diners",
+        "discover",
+        "eftpos_au",
+        "jcb",
+        "mastercard",
+        "unionpay",
+        "visa",
+        "unknown"
+      ],
+      "maxLength": 12
+    }
+  },
+  "required": [
+    "patient_id"
+  ],
+  "type": "object"
+}

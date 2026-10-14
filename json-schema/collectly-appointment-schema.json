@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/collectly/main/json-schema/collectly-appointment-schema.json",
+  "title": "Appointment",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/collectly-partners1-openapi.yml#/components/schemas/Appointment",
+  "properties": {
+    "appointment_type": {
+      "type": "string"
+    },
+    "billing_provider_npi": {
+      "description": "If provided, Collectly will look up imported providers by NPI instead of external_id. Do not provide both 'external_billing_provider_id' and 'billing_provider_npi'.",
+      "type": "string",
+      "writeOnly": true
+    },
+    "client_id": {},
+    "collectly_patient_id": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "collectly_primary_insurance_policy_id": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "collectly_secondary_insurance_policy_id": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "company_id": {},
+    "created_at": {
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "expected_copay_amount": {},
+    "external_billing_provider_id": {
+      "type": "string"
+    },
+    "external_billing_provider_name": {
+      "description": "If provided, Collectly will look up imported providers by name instead of external_id. Do not provide both 'external_billing_provider_id' and 'external_billing_provider_name'.",
+      "type": "string",
+      "writeOnly": true
+    },
+    "external_id": {
+      "type": "string"
+    },
+    "external_location_id": {
+      "type": "string"
+    },
+    "external_location_name": {
+      "description": "If provided, Collectly will look up imported locations by name instead of external_id. Do not provide both 'external_location_id' and 'external_location_name'.",
+      "type": "string",
+      "writeOnly": true
+    },
+    "external_patient_id": {
+      "type": "string",
+      "writeOnly": true
+    },
+    "external_provider_id": {
+      "type": "string"
+    },
+    "external_provider_name": {
+      "description": "If provided, Collectly will look up imported providers by name instead of external_id. Do not provide both 'external_provider_id' and 'external_provider_name'.",
+      "type": "string",
+      "writeOnly": true
+    },
+    "external_status": {
+      "enum": [
+        "active",
+        "cancelled",
+        "rescheduled",
+        "no_show"
+      ],
+      "type": "string"
+    },
+    "id": {
+      "format": "int32",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "metadata": {
+      "description": "Additional data to be stored with the appointment. This can be used to store any extra information that does not fit into the predefined fields.",
+      "type": "object",
+      "writeOnly": true
+    },
+    "modified_at": {
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "provider_npi": {
+      "description": "If provided, Collectly will look up imported providers by NPI instead of external_id. Do not provide both 'external_provider_id' and 'provider_npi'.",
+      "type": "string",
+      "writeOnly": true
+    },
+    "service_date_end": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "service_date_end_local": {
+      "format": "date-time",
+      "type": "string",
+      "writeOnly": true
+    },
+    "service_date_start": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "service_date_start_local": {
+      "format": "date-time",
+      "type": "string",
+      "writeOnly": true
+    },
+    "timezone_local": {
+      "type": "string",
+      "writeOnly": true
+    }
+  },
+  "required": [
+    "appointment_type",
+    "external_id",
+    "external_status",
+    "service_date_end",
+    "service_date_start"
+  ],
+  "type": "object"
+}

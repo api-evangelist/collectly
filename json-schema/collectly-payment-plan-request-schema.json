@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/collectly/main/json-schema/collectly-payment-plan-request-schema.json",
+  "title": "PaymentPlanRequest",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/collectly-partners1-openapi.yml#/components/schemas/PaymentPlanRequest",
+  "properties": {
+    "email": {
+      "description": "Patient email to send a consent request",
+      "format": "email",
+      "type": "string"
+    },
+    "installment": {
+      "description": "Amount to charge every week/2nd week/month according to period_type.",
+      "minimum": 0.01,
+      "type": "number"
+    },
+    "location_id": {
+      "description": "This field determines where to route funds for pre-service payment plans in case multiple bank accounts are connected. Should be empty in other cases.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "n_installments": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "period_type": {
+      "default": "monthly",
+      "description": "Determines the frequency of installments.",
+      "enum": [
+        "monthly",
+        "weekly",
+        "biweekly",
+        "semimonthly"
+      ],
+      "type": "string"
+    },
+    "phone": {
+      "description": "Patient phone to send a consent request",
+      "type": "string"
+    },
+    "start_date": {
+      "description": "ISO8601-formatted date string.\n\n    :param kwargs: The same keyword arguments that :class:`Field` receives.\n    ",
+      "type": "string"
+    },
+    "total_amount": {
+      "description": "Total amount to be charged on the payment plan.It is always equal to patient balance at payment plan subscription momentfor the \"standard\" type.",
+      "minimum": 0.01,
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "type": {
+      "default": "standard",
+      "description": "\"standard\" - post-service payment plan, \"upfront\" - pre-service payment plan",
+      "enum": [
+        "standard",
+        "upfront"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "installment"
+  ],
+  "type": "object"
+}

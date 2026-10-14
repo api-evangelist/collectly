@@ -1,0 +1,1036 @@
+{
+  "@context": {
+    "@vocab": "https://collectly.co/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "collectly": "https://collectly.co/schema#",
+    "Appointment": "collectly:Appointment",
+    "appointment_type": {
+      "@id": "collectly:appointment_type",
+      "@type": "xsd:string"
+    },
+    "billing_provider_npi": {
+      "@id": "collectly:billing_provider_npi",
+      "@type": "xsd:string"
+    },
+    "client_id": {
+      "@id": "collectly:client_id"
+    },
+    "collectly_patient_id": {
+      "@id": "collectly:collectly_patient_id",
+      "@type": "xsd:integer"
+    },
+    "collectly_primary_insurance_policy_id": {
+      "@id": "collectly:collectly_primary_insurance_policy_id",
+      "@type": "xsd:integer"
+    },
+    "collectly_secondary_insurance_policy_id": {
+      "@id": "collectly:collectly_secondary_insurance_policy_id",
+      "@type": "xsd:integer"
+    },
+    "company_id": {
+      "@id": "collectly:company_id"
+    },
+    "created_at": {
+      "@id": "collectly:created_at",
+      "@type": "xsd:dateTime"
+    },
+    "expected_copay_amount": {
+      "@id": "collectly:expected_copay_amount"
+    },
+    "external_billing_provider_id": {
+      "@id": "collectly:external_billing_provider_id",
+      "@type": "xsd:string"
+    },
+    "external_billing_provider_name": {
+      "@id": "collectly:external_billing_provider_name",
+      "@type": "xsd:string"
+    },
+    "external_id": {
+      "@id": "collectly:external_id",
+      "@type": "xsd:string"
+    },
+    "external_location_id": {
+      "@id": "collectly:external_location_id",
+      "@type": "xsd:string"
+    },
+    "external_location_name": {
+      "@id": "collectly:external_location_name",
+      "@type": "xsd:string"
+    },
+    "external_patient_id": {
+      "@id": "collectly:external_patient_id",
+      "@type": "xsd:string"
+    },
+    "external_provider_id": {
+      "@id": "collectly:external_provider_id",
+      "@type": "xsd:string"
+    },
+    "external_provider_name": {
+      "@id": "collectly:external_provider_name",
+      "@type": "xsd:string"
+    },
+    "external_status": {
+      "@id": "collectly:external_status",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "collectly:id",
+      "@type": "xsd:integer"
+    },
+    "metadata": {
+      "@id": "collectly:metadata"
+    },
+    "modified_at": {
+      "@id": "collectly:modified_at",
+      "@type": "xsd:dateTime"
+    },
+    "provider_npi": {
+      "@id": "collectly:provider_npi",
+      "@type": "xsd:string"
+    },
+    "service_date_end": {
+      "@id": "collectly:service_date_end",
+      "@type": "xsd:dateTime"
+    },
+    "service_date_end_local": {
+      "@id": "collectly:service_date_end_local",
+      "@type": "xsd:dateTime"
+    },
+    "service_date_start": {
+      "@id": "collectly:service_date_start",
+      "@type": "xsd:dateTime"
+    },
+    "service_date_start_local": {
+      "@id": "collectly:service_date_start_local",
+      "@type": "xsd:dateTime"
+    },
+    "timezone_local": {
+      "@id": "collectly:timezone_local",
+      "@type": "xsd:string"
+    },
+    "InsurancePolicy": "collectly:InsurancePolicy",
+    "clearinghouse_copay": {
+      "@id": "collectly:clearinghouse_copay",
+      "@type": "xsd:decimal"
+    },
+    "external_insurance_company_id": {
+      "@id": "collectly:external_insurance_company_id",
+      "@type": "xsd:string"
+    },
+    "extra": {
+      "@id": "collectly:extra"
+    },
+    "in_network_effective_location_ids": {
+      "@id": "collectly:in_network_effective_location_ids",
+      "@container": "@list"
+    },
+    "is_archived": {
+      "@id": "collectly:is_archived",
+      "@type": "xsd:boolean"
+    },
+    "is_external": {
+      "@id": "collectly:is_external",
+      "@type": "xsd:boolean"
+    },
+    "is_manually_verified": {
+      "@id": "collectly:is_manually_verified",
+      "@type": "xsd:boolean"
+    },
+    "is_photos_exist_in_ehr": {
+      "@id": "collectly:is_photos_exist_in_ehr",
+      "@type": "xsd:boolean"
+    },
+    "manual_copay": {
+      "@id": "collectly:manual_copay",
+      "@type": "xsd:decimal"
+    },
+    "member_id": {
+      "@id": "collectly:member_id",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "collectly:name",
+      "@type": "xsd:string"
+    },
+    "note": {
+      "@id": "collectly:note",
+      "@type": "xsd:string"
+    },
+    "patient_id": {
+      "@id": "collectly:patient_id",
+      "@type": "xsd:string"
+    },
+    "photo_back_upload_id": {
+      "@id": "collectly:photo_back_upload_id"
+    },
+    "photo_front_upload_id": {
+      "@id": "collectly:photo_front_upload_id"
+    },
+    "priority": {
+      "@id": "collectly:priority",
+      "@type": "xsd:string"
+    },
+    "PartnersAPISubscription": "collectly:PartnersAPISubscription",
+    "amount": {
+      "@id": "collectly:amount",
+      "@type": "xsd:decimal"
+    },
+    "billing_provider_id": {
+      "@id": "collectly:billing_provider_id",
+      "@type": "xsd:integer"
+    },
+    "cadence": {
+      "@id": "collectly:cadence",
+      "@type": "xsd:string"
+    },
+    "cpt_code": {
+      "@id": "collectly:cpt_code",
+      "@type": "xsd:string"
+    },
+    "diagnosis_code": {
+      "@id": "collectly:diagnosis_code",
+      "@type": "xsd:string"
+    },
+    "diagnosis_code_type": {
+      "@id": "collectly:diagnosis_code_type",
+      "@type": "xsd:string"
+    },
+    "location_id": {
+      "@id": "collectly:location_id",
+      "@type": "xsd:string"
+    },
+    "payment_method_id": {
+      "@id": "collectly:payment_method_id",
+      "@type": "xsd:integer"
+    },
+    "place_of_service": {
+      "@id": "collectly:place_of_service",
+      "@type": "xsd:string"
+    },
+    "rendering_provider_id": {
+      "@id": "collectly:rendering_provider_id",
+      "@type": "xsd:integer"
+    },
+    "secret": {
+      "@id": "collectly:secret",
+      "@type": "xsd:string"
+    },
+    "start_date": {
+      "@id": "collectly:start_date",
+      "@type": "xsd:date"
+    },
+    "status": {
+      "@id": "collectly:status",
+      "@type": "xsd:string"
+    },
+    "Company": "collectly:Company",
+    "address": {
+      "@id": "collectly:address",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "collectly:city",
+      "@type": "xsd:string"
+    },
+    "clearinghouse": {
+      "@id": "collectly:clearinghouse",
+      "@type": "xsd:string"
+    },
+    "company_name": {
+      "@id": "collectly:company_name",
+      "@type": "xsd:string"
+    },
+    "company_uid": {
+      "@id": "collectly:company_uid",
+      "@type": "xsd:string"
+    },
+    "country_code": {
+      "@id": "collectly:country_code",
+      "@type": "xsd:string"
+    },
+    "executive_name": {
+      "@id": "collectly:executive_name",
+      "@type": "xsd:string"
+    },
+    "logo_url": {
+      "@id": "collectly:logo_url",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "collectly:state",
+      "@type": "xsd:string"
+    },
+    "tax_id": {
+      "@id": "collectly:tax_id",
+      "@type": "xsd:string"
+    },
+    "zip_code": {
+      "@id": "collectly:zip_code",
+      "@type": "xsd:string"
+    },
+    "PartnerLogin": "collectly:PartnerLogin",
+    "company_secret": {
+      "@id": "collectly:company_secret",
+      "@type": "xsd:string"
+    },
+    "PatientLookup": "collectly:PatientLookup",
+    "patient_external_id": {
+      "@id": "collectly:patient_external_id",
+      "@type": "xsd:string"
+    },
+    "PatientForm": "collectly:PatientForm",
+    "card": {
+      "@id": "collectly:card"
+    },
+    "card_id": {
+      "@id": "collectly:card_id",
+      "@type": "xsd:integer"
+    },
+    "company": {
+      "@id": "collectly:company",
+      "@type": "xsd:integer"
+    },
+    "data": {
+      "@id": "collectly:data"
+    },
+    "date_of_birth": {
+      "@id": "collectly:date_of_birth",
+      "@type": "xsd:date"
+    },
+    "email": {
+      "@id": "collectly:email",
+      "@type": "xsd:string"
+    },
+    "first_name": {
+      "@id": "collectly:first_name",
+      "@type": "xsd:string"
+    },
+    "form_type": {
+      "@id": "collectly:form_type",
+      "@type": "xsd:string"
+    },
+    "guarantor_first_name": {
+      "@id": "collectly:guarantor_first_name",
+      "@type": "xsd:string"
+    },
+    "guarantor_last_name": {
+      "@id": "collectly:guarantor_last_name",
+      "@type": "xsd:string"
+    },
+    "last_name": {
+      "@id": "collectly:last_name",
+      "@type": "xsd:string"
+    },
+    "phone": {
+      "@id": "collectly:phone",
+      "@type": "xsd:string"
+    },
+    "AddressBase": "collectly:AddressBase",
+    "country_short": {
+      "@id": "collectly:country_short",
+      "@type": "xsd:string"
+    },
+    "line2": {
+      "@id": "collectly:line2",
+      "@type": "xsd:string"
+    },
+    "street": {
+      "@id": "collectly:street",
+      "@type": "xsd:string"
+    },
+    "Client": "collectly:Client",
+    "processed_at": {
+      "@id": "collectly:processed_at"
+    },
+    "timezone": {
+      "@id": "collectly:timezone",
+      "@type": "xsd:string"
+    },
+    "voice_ai_hours_end": {
+      "@id": "collectly:voice_ai_hours_end",
+      "@type": "xsd:string"
+    },
+    "voice_ai_hours_start": {
+      "@id": "collectly:voice_ai_hours_start",
+      "@type": "xsd:string"
+    },
+    "work_hours_end": {
+      "@id": "collectly:work_hours_end",
+      "@type": "xsd:string"
+    },
+    "work_hours_start": {
+      "@id": "collectly:work_hours_start",
+      "@type": "xsd:string"
+    },
+    "workflow_min_balance": {
+      "@id": "collectly:workflow_min_balance",
+      "@type": "xsd:integer"
+    },
+    "InsuranceCompany": "collectly:InsuranceCompany",
+    "collectly_id": {
+      "@id": "collectly:collectly_id",
+      "@type": "xsd:string"
+    },
+    "practice_id": {
+      "@id": "collectly:practice_id",
+      "@type": "xsd:string"
+    },
+    "Location": "collectly:Location",
+    "Address": "collectly:Address",
+    "country": {
+      "@id": "collectly:country",
+      "@type": "xsd:string"
+    },
+    "street_number": {
+      "@id": "collectly:street_number",
+      "@type": "xsd:string"
+    },
+    "text": {
+      "@id": "collectly:text"
+    },
+    "BillingCycle": "collectly:BillingCycle",
+    "billing_rule_id": {
+      "@id": "collectly:billing_rule_id",
+      "@type": "xsd:integer"
+    },
+    "billing_rule_name": {
+      "@id": "collectly:billing_rule_name",
+      "@type": "xsd:string"
+    },
+    "last_notification_time": {
+      "@id": "collectly:last_notification_time"
+    },
+    "last_notification_type": {
+      "@id": "collectly:last_notification_type",
+      "@type": "xsd:string"
+    },
+    "paused_by_patient_reply": {
+      "@id": "collectly:paused_by_patient_reply",
+      "@type": "xsd:boolean"
+    },
+    "Email": "collectly:Email",
+    "additional_priorities": {
+      "@id": "collectly:additional_priorities"
+    },
+    "all_priorities": {
+      "@id": "collectly:all_priorities",
+      "@container": "@list"
+    },
+    "enabled": {
+      "@id": "collectly:enabled",
+      "@type": "xsd:boolean"
+    },
+    "source": {
+      "@id": "collectly:source",
+      "@type": "xsd:string"
+    },
+    "Guarantor": "collectly:Guarantor",
+    "middle_name": {
+      "@id": "collectly:middle_name",
+      "@type": "xsd:string"
+    },
+    "ssn": {
+      "@id": "collectly:ssn",
+      "@type": "xsd:string"
+    },
+    "InsurancePolicy1": "collectly:InsurancePolicy1",
+    "insurance_company_collectly_id": {
+      "@id": "collectly:insurance_company_collectly_id",
+      "@type": "xsd:integer"
+    },
+    "patient_collectly_id": {
+      "@id": "collectly:patient_collectly_id",
+      "@type": "xsd:integer"
+    },
+    "Patient": "collectly:Patient",
+    "card_auth_on_file": {
+      "@id": "collectly:card_auth_on_file",
+      "@type": "xsd:boolean"
+    },
+    "current_balance": {
+      "@id": "collectly:current_balance",
+      "@type": "xsd:decimal"
+    },
+    "emails": {
+      "@id": "collectly:emails",
+      "@container": "@list"
+    },
+    "external_balance": {
+      "@id": "collectly:external_balance",
+      "@type": "xsd:decimal"
+    },
+    "external_refnum": {
+      "@id": "collectly:external_refnum",
+      "@type": "xsd:string"
+    },
+    "gender": {
+      "@id": "collectly:gender",
+      "@type": "xsd:string"
+    },
+    "guarantor": {
+      "@id": "collectly:guarantor",
+      "@type": "@id"
+    },
+    "insurance_policies": {
+      "@id": "collectly:insurance_policies",
+      "@container": "@list"
+    },
+    "last_billing_cycle": {
+      "@id": "collectly:last_billing_cycle"
+    },
+    "last_payment_date": {
+      "@id": "collectly:last_payment_date",
+      "@type": "xsd:dateTime"
+    },
+    "on_payment_plan": {
+      "@id": "collectly:on_payment_plan",
+      "@type": "xsd:boolean"
+    },
+    "paused": {
+      "@id": "collectly:paused",
+      "@type": "xsd:boolean"
+    },
+    "phones": {
+      "@id": "collectly:phones",
+      "@container": "@list"
+    },
+    "tags": {
+      "@id": "collectly:tags",
+      "@container": "@list"
+    },
+    "Phone": "collectly:Phone",
+    "blocked": {
+      "@id": "collectly:blocked",
+      "@type": "xsd:boolean"
+    },
+    "carrier": {
+      "@id": "collectly:carrier",
+      "@type": "xsd:string"
+    },
+    "rcs_unavailable_until_at": {
+      "@id": "collectly:rcs_unavailable_until_at"
+    },
+    "type": {
+      "@id": "collectly:type",
+      "@type": "xsd:integer"
+    },
+    "Tag": "collectly:Tag",
+    "Patient_Checkout": "collectly:Patient_Checkout",
+    "account_payments": {
+      "@id": "collectly:account_payments",
+      "@container": "@list"
+    },
+    "auto_charge_enabled": {
+      "@id": "collectly:auto_charge_enabled",
+      "@type": "xsd:boolean"
+    },
+    "bank_account_id": {
+      "@id": "collectly:bank_account_id",
+      "@type": "xsd:string"
+    },
+    "bank_account_mask": {
+      "@id": "collectly:bank_account_mask",
+      "@type": "xsd:string"
+    },
+    "bank_account_name": {
+      "@id": "collectly:bank_account_name",
+      "@type": "xsd:string"
+    },
+    "bank_account_subtype": {
+      "@id": "collectly:bank_account_subtype",
+      "@type": "xsd:string"
+    },
+    "bank_account_type": {
+      "@id": "collectly:bank_account_type",
+      "@type": "xsd:string"
+    },
+    "bank_id": {
+      "@id": "collectly:bank_id",
+      "@type": "xsd:string"
+    },
+    "bank_name": {
+      "@id": "collectly:bank_name",
+      "@type": "xsd:string"
+    },
+    "customer_id": {
+      "@id": "collectly:customer_id",
+      "@type": "xsd:string"
+    },
+    "exp_month": {
+      "@id": "collectly:exp_month",
+      "@type": "xsd:integer"
+    },
+    "exp_year": {
+      "@id": "collectly:exp_year",
+      "@type": "xsd:integer"
+    },
+    "external_payment_method_id": {
+      "@id": "collectly:external_payment_method_id",
+      "@type": "xsd:string"
+    },
+    "fingerprint": {
+      "@id": "collectly:fingerprint",
+      "@type": "xsd:string"
+    },
+    "funding": {
+      "@id": "collectly:funding",
+      "@type": "xsd:string"
+    },
+    "is_hsa_payment_method": {
+      "@id": "collectly:is_hsa_payment_method",
+      "@type": "xsd:boolean"
+    },
+    "last4": {
+      "@id": "collectly:last4",
+      "@type": "xsd:string"
+    },
+    "last_signed_consent": {
+      "@id": "collectly:last_signed_consent"
+    },
+    "patient": {
+      "@id": "collectly:patient"
+    },
+    "payment_plan": {
+      "@id": "collectly:payment_plan",
+      "@container": "@list"
+    },
+    "payments": {
+      "@id": "collectly:payments",
+      "@container": "@list"
+    },
+    "plaid_access_token": {
+      "@id": "collectly:plaid_access_token",
+      "@type": "xsd:string"
+    },
+    "provided_card_type": {
+      "@id": "collectly:provided_card_type",
+      "@type": "xsd:string"
+    },
+    "source_terminal": {
+      "@id": "collectly:source_terminal"
+    },
+    "source_user": {
+      "@id": "collectly:source_user"
+    },
+    "wallet_type": {
+      "@id": "collectly:wallet_type"
+    },
+    "PaymentMethod": "collectly:PaymentMethod",
+    "CardStore": "collectly:CardStore",
+    "card_type": {
+      "@id": "collectly:card_type",
+      "@type": "xsd:string"
+    },
+    "is_credit_card": {
+      "@id": "collectly:is_credit_card",
+      "@type": "xsd:boolean"
+    },
+    "user_token": {
+      "@id": "collectly:user_token",
+      "@type": "xsd:string"
+    },
+    "PaymentMethodStore": "collectly:PaymentMethodStore",
+    "PaymentMethodCharge": "collectly:PaymentMethodCharge",
+    "copay_amount": {
+      "@id": "collectly:copay_amount",
+      "@type": "xsd:decimal"
+    },
+    "PaymentPlan": "collectly:PaymentPlan",
+    "collectly_payment_method_id": {
+      "@id": "collectly:collectly_payment_method_id",
+      "@type": "xsd:string"
+    },
+    "installment": {
+      "@id": "collectly:installment",
+      "@type": "xsd:decimal"
+    },
+    "n_installments": {
+      "@id": "collectly:n_installments",
+      "@type": "xsd:integer"
+    },
+    "next_payment_date": {
+      "@id": "collectly:next_payment_date",
+      "@type": "xsd:date"
+    },
+    "payments_made": {
+      "@id": "collectly:payments_made",
+      "@type": "xsd:integer"
+    },
+    "period_type": {
+      "@id": "collectly:period_type",
+      "@type": "xsd:string"
+    },
+    "total_amount": {
+      "@id": "collectly:total_amount",
+      "@type": "xsd:decimal"
+    },
+    "PaymentPlanRequest": "collectly:PaymentPlanRequest",
+    "Adjustment": "collectly:Adjustment",
+    "group": {
+      "@id": "collectly:group",
+      "@type": "xsd:string"
+    },
+    "reason": {
+      "@id": "collectly:reason",
+      "@type": "xsd:string"
+    },
+    "Discount": "collectly:Discount",
+    "description": {
+      "@id": "collectly:description",
+      "@type": "xsd:string"
+    },
+    "valid_until": {
+      "@id": "collectly:valid_until",
+      "@type": "xsd:date"
+    },
+    "ERALineItem": "collectly:ERALineItem",
+    "adjustments": {
+      "@id": "collectly:adjustments",
+      "@container": "@list"
+    },
+    "allowed": {
+      "@id": "collectly:allowed",
+      "@type": "xsd:decimal"
+    },
+    "billed": {
+      "@id": "collectly:billed",
+      "@type": "xsd:decimal"
+    },
+    "paid": {
+      "@id": "collectly:paid",
+      "@type": "xsd:decimal"
+    },
+    "remark": {
+      "@id": "collectly:remark",
+      "@type": "xsd:string"
+    },
+    "service_code": {
+      "@id": "collectly:service_code",
+      "@type": "xsd:string"
+    },
+    "units": {
+      "@id": "collectly:units",
+      "@type": "xsd:integer"
+    },
+    "InsurancePayment": "collectly:InsurancePayment",
+    "adjustment": {
+      "@id": "collectly:adjustment",
+      "@type": "xsd:decimal"
+    },
+    "allowed_amount": {
+      "@id": "collectly:allowed_amount",
+      "@type": "xsd:decimal"
+    },
+    "coins_amount": {
+      "@id": "collectly:coins_amount",
+      "@type": "xsd:decimal"
+    },
+    "company_external_id": {
+      "@id": "collectly:company_external_id",
+      "@type": "xsd:string"
+    },
+    "date": {
+      "@id": "collectly:date",
+      "@type": "xsd:date"
+    },
+    "deduct_amount": {
+      "@id": "collectly:deduct_amount",
+      "@type": "xsd:decimal"
+    },
+    "ins_paid": {
+      "@id": "collectly:ins_paid",
+      "@type": "xsd:decimal"
+    },
+    "member_balance": {
+      "@id": "collectly:member_balance",
+      "@type": "xsd:decimal"
+    },
+    "withheld_amount": {
+      "@id": "collectly:withheld_amount",
+      "@type": "xsd:decimal"
+    },
+    "InsurancePolicyState": "collectly:InsurancePolicyState",
+    "claim_adjustments": {
+      "@id": "collectly:claim_adjustments",
+      "@container": "@list"
+    },
+    "claim_status": {
+      "@id": "collectly:claim_status",
+      "@type": "xsd:string"
+    },
+    "claim_status_description": {
+      "@id": "collectly:claim_status_description",
+      "@type": "xsd:string"
+    },
+    "codes_description": {
+      "@id": "collectly:codes_description",
+      "@container": "@list"
+    },
+    "line_items": {
+      "@id": "collectly:line_items",
+      "@container": "@list"
+    },
+    "SnapshotAppointment": "collectly:SnapshotAppointment",
+    "SnapshotData": "collectly:SnapshotData",
+    "balance_past_120_days": {
+      "@id": "collectly:balance_past_120_days",
+      "@type": "xsd:decimal"
+    },
+    "visits": {
+      "@id": "collectly:visits",
+      "@container": "@list"
+    },
+    "SnapshotLocation": "collectly:SnapshotLocation",
+    "SnapshotPartner": "collectly:SnapshotPartner",
+    "billed_amount": {
+      "@id": "collectly:billed_amount",
+      "@type": "xsd:decimal"
+    },
+    "pt_amount": {
+      "@id": "collectly:pt_amount",
+      "@type": "xsd:decimal"
+    },
+    "pt_balance": {
+      "@id": "collectly:pt_balance",
+      "@type": "xsd:decimal"
+    },
+    "SnapshotPayment": "collectly:SnapshotPayment",
+    "allocations": {
+      "@id": "collectly:allocations",
+      "@container": "@list"
+    },
+    "payment_type": {
+      "@id": "collectly:payment_type",
+      "@type": "xsd:string"
+    },
+    "post_date": {
+      "@id": "collectly:post_date",
+      "@type": "xsd:date"
+    },
+    "source_payment_id": {
+      "@id": "collectly:source_payment_id",
+      "@type": "xsd:string"
+    },
+    "SnapshotPaymentAllocation": "collectly:SnapshotPaymentAllocation",
+    "charge_id": {
+      "@id": "collectly:charge_id",
+      "@type": "xsd:string"
+    },
+    "visit_id": {
+      "@id": "collectly:visit_id",
+      "@type": "xsd:string"
+    },
+    "SnapshotVisit": "collectly:SnapshotVisit",
+    "appointment": {
+      "@id": "collectly:appointment"
+    },
+    "billing_hold_reason": {
+      "@id": "collectly:billing_hold_reason",
+      "@type": "xsd:string"
+    },
+    "billing_hold_type": {
+      "@id": "collectly:billing_hold_type",
+      "@type": "xsd:string"
+    },
+    "billing_location": {
+      "@id": "collectly:billing_location",
+      "@type": "@id"
+    },
+    "billing_provider": {
+      "@id": "collectly:billing_provider",
+      "@type": "@id"
+    },
+    "charges": {
+      "@id": "collectly:charges",
+      "@container": "@list"
+    },
+    "collections_status": {
+      "@id": "collectly:collections_status",
+      "@type": "xsd:string"
+    },
+    "discounts": {
+      "@id": "collectly:discounts",
+      "@container": "@list"
+    },
+    "ehr_discounts": {
+      "@id": "collectly:ehr_discounts",
+      "@container": "@list"
+    },
+    "insurance_payments": {
+      "@id": "collectly:insurance_payments",
+      "@container": "@list"
+    },
+    "location": {
+      "@id": "collectly:location",
+      "@type": "@id"
+    },
+    "meta": {
+      "@id": "collectly:meta"
+    },
+    "notes": {
+      "@id": "collectly:notes",
+      "@container": "@list"
+    },
+    "patient_name": {
+      "@id": "collectly:patient_name",
+      "@type": "xsd:string"
+    },
+    "provider": {
+      "@id": "collectly:provider",
+      "@type": "@id"
+    },
+    "provider_id": {
+      "@id": "collectly:provider_id",
+      "@type": "xsd:string"
+    },
+    "pt_adjustment": {
+      "@id": "collectly:pt_adjustment",
+      "@type": "xsd:decimal"
+    },
+    "pt_bad_debt": {
+      "@id": "collectly:pt_bad_debt",
+      "@type": "xsd:decimal"
+    },
+    "pt_balance_on_hold": {
+      "@id": "collectly:pt_balance_on_hold",
+      "@type": "xsd:decimal"
+    },
+    "pt_paid": {
+      "@id": "collectly:pt_paid",
+      "@type": "xsd:decimal"
+    },
+    "raw_adjustments": {
+      "@id": "collectly:raw_adjustments",
+      "@container": "@list"
+    },
+    "service_date": {
+      "@id": "collectly:service_date",
+      "@type": "xsd:date"
+    },
+    "visit_pt_adjustment": {
+      "@id": "collectly:visit_pt_adjustment",
+      "@type": "xsd:decimal"
+    },
+    "SnapshotVisitCharge": "collectly:SnapshotVisitCharge",
+    "procedure_code": {
+      "@id": "collectly:procedure_code",
+      "@type": "xsd:string"
+    },
+    "rx_number": {
+      "@id": "collectly:rx_number",
+      "@type": "xsd:string"
+    },
+    "VisitInsurancePolicy": "collectly:VisitInsurancePolicy",
+    "group_id": {
+      "@id": "collectly:group_id",
+      "@type": "xsd:string"
+    },
+    "insurance_name": {
+      "@id": "collectly:insurance_name",
+      "@type": "xsd:string"
+    },
+    "policy_external_id": {
+      "@id": "collectly:policy_external_id",
+      "@type": "xsd:string"
+    },
+    "VisitProvider": "collectly:VisitProvider",
+    "display_name": {
+      "@id": "collectly:display_name",
+      "@type": "xsd:string"
+    },
+    "_Location": "collectly:_Location",
+    "_Provider": "collectly:_Provider",
+    "Allocation": "collectly:Allocation",
+    "Payment": "collectly:Payment",
+    "collectly_payment_plan_id": {
+      "@id": "collectly:collectly_payment_plan_id",
+      "@type": "xsd:string"
+    },
+    "collectly_source_payment_id": {
+      "@id": "collectly:collectly_source_payment_id",
+      "@type": "xsd:string"
+    },
+    "transaction_id": {
+      "@id": "collectly:transaction_id",
+      "@type": "xsd:string"
+    },
+    "Provider": "collectly:Provider",
+    "npi": {
+      "@id": "collectly:npi",
+      "@type": "xsd:string"
+    },
+    "PaymentMethodStoreWithCollectlyId": "collectly:PaymentMethodStoreWithCollectlyId",
+    "UnmappedPatient": "collectly:UnmappedPatient",
+    "ClientShort": "collectly:ClientShort",
+    "CompanyProfile": "collectly:CompanyProfile",
+    "allow_smart_retries": {
+      "@id": "collectly:allow_smart_retries",
+      "@type": "xsd:boolean"
+    },
+    "allow_users_edit_pp": {
+      "@id": "collectly:allow_users_edit_pp",
+      "@type": "xsd:boolean"
+    },
+    "auto_approve_rules": {
+      "@id": "collectly:auto_approve_rules",
+      "@type": "xsd:boolean"
+    },
+    "collectly_activated": {
+      "@id": "collectly:collectly_activated",
+      "@type": "xsd:boolean"
+    },
+    "hide_access_codes": {
+      "@id": "collectly:hide_access_codes",
+      "@type": "xsd:boolean"
+    },
+    "hide_appointments": {
+      "@id": "collectly:hide_appointments",
+      "@type": "xsd:boolean"
+    },
+    "hide_dashboard_user": {
+      "@id": "collectly:hide_dashboard_user",
+      "@type": "xsd:boolean"
+    },
+    "is_2fa_enforced": {
+      "@id": "collectly:is_2fa_enforced",
+      "@type": "xsd:boolean"
+    },
+    "is_template": {
+      "@id": "collectly:is_template",
+      "@type": "xsd:boolean"
+    },
+    "salesforce_account_id": {
+      "@id": "collectly:salesforce_account_id",
+      "@type": "xsd:string"
+    },
+    "sidebar_logout_timeout_minutes": {
+      "@id": "collectly:sidebar_logout_timeout_minutes",
+      "@type": "xsd:integer"
+    },
+    "User": "collectly:User",
+    "active": {
+      "@id": "collectly:active",
+      "@type": "xsd:boolean"
+    },
+    "allowed_clients": {
+      "@id": "collectly:allowed_clients",
+      "@container": "@list"
+    },
+    "confirmed_at": {
+      "@id": "collectly:confirmed_at"
+    },
+    "password": {
+      "@id": "collectly:password",
+      "@type": "xsd:string"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Collectly API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Collectly's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-14) from openapi/collectly-partners1-openapi.yml.",
+  "dcterms:created": "2026-10-14",
+  "dcterms:source": [
+    "openapi/collectly-partners1-openapi.yml"
+  ]
+}

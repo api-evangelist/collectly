@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/collectly/main/json-schema/collectly-payment-plan-schema.json",
+  "title": "PaymentPlan",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/collectly-partners1-openapi.yml#/components/schemas/PaymentPlan",
+  "properties": {
+    "collectly_id": {
+      "description": "Unique Collectly resource ID",
+      "readOnly": true,
+      "type": "string"
+    },
+    "collectly_payment_method_id": {
+      "description": "Collectly payment method ID which you can obtain from \"/payment-methods\" endpoint",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "created_at": {
+      "nullable": true,
+      "readOnly": true
+    },
+    "installment": {
+      "description": "Amount to charge every week/2nd week/month according to period_type.",
+      "minimum": 0.01,
+      "type": "number"
+    },
+    "location_id": {
+      "description": "This field determines where to route funds for pre-service payment plans in case multiple bank accounts are connected. Should be empty in other cases.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "n_installments": {
+      "description": "The total count of planned payments for this payment plan.",
+      "format": "int32",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "next_payment_date": {
+      "description": "datetime of the next planned charge",
+      "format": "date",
+      "readOnly": true,
+      "type": "string"
+    },
+    "payments_made": {
+      "description": "The count of already charged payments for this payment plan.",
+      "format": "int32",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "period_type": {
+      "default": "monthly",
+      "description": "Determines the frequency of installments.",
+      "enum": [
+        "monthly",
+        "weekly",
+        "biweekly",
+        "semimonthly"
+      ],
+      "type": "string"
+    },
+    "start_date": {
+      "description": "ISO-8601 date format. The date when the first installment will be charged. Must not be in the past. Successive installment dates are computed according to the \"period_type\". Convert the start date to UTC timezone. ",
+      "format": "date",
+      "type": "string"
+    },
+    "status": {
+      "description": "Current status of the payment plan",
+      "enum": [
+        "not_subscribed",
+        "subscribed",
+        "paid",
+        "cancelled",
+        "declined",
+        "failed"
+      ],
+      "readOnly": true,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "total_amount": {
+      "description": "Total amount to be charged on the payment plan.It is always equal to patient balance at payment plan subscription momentfor the \"standard\" type.",
+      "minimum": 0.01,
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "type": {
+      "default": "standard",
+      "description": "\"standard\" - post-service payment plan, \"upfront\" - pre-service payment plan",
+      "enum": [
+        "standard",
+        "upfront"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "installment"
+  ],
+  "type": "object"
+}

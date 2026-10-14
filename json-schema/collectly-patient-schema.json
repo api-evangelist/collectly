@@ -1,0 +1,432 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/collectly/main/json-schema/collectly-patient-schema.json",
+  "title": "Patient",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/collectly-partners1-openapi.yml#/components/schemas/Patient",
+  "properties": {
+    "address": {
+      "$ref": "#/$defs/Address"
+    },
+    "card_auth_on_file": {
+      "description": "The flag indicates if the patient has at least one payment method that is authorized for auto-pay",
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "collectly_id": {
+      "description": "Unique Collectly resource ID",
+      "readOnly": true,
+      "type": "string"
+    },
+    "created_at": {
+      "readOnly": true
+    },
+    "current_balance": {
+      "readOnly": true,
+      "type": "number"
+    },
+    "date_of_birth": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "emails": {
+      "items": {
+        "$ref": "#/$defs/Email"
+      },
+      "type": "array"
+    },
+    "external_balance": {
+      "readOnly": true,
+      "type": "number"
+    },
+    "external_refnum": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "gender": {
+      "description": "Allowed values: female, male, other",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "guarantor": {
+      "$ref": "#/$defs/Guarantor"
+    },
+    "id": {
+      "description": "Unique resource ID from your integration",
+      "type": "string"
+    },
+    "insurance_policies": {
+      "items": {
+        "$ref": "#/$defs/InsurancePolicy1"
+      },
+      "type": "array"
+    },
+    "last_billing_cycle": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/BillingCycle"
+        }
+      ],
+      "readOnly": true
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "last_payment_date": {
+      "description": "Date and time of the patient's last payment",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "metadata": {
+      "nullable": true
+    },
+    "middle_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "modified_at": {
+      "readOnly": true
+    },
+    "on_payment_plan": {
+      "description": "The flag indicates if the patient has an active payment plan",
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "paused": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "phones": {
+      "items": {
+        "$ref": "#/$defs/Phone"
+      },
+      "type": "array"
+    },
+    "practice_id": {
+      "type": "string"
+    },
+    "ssn": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tags": {
+      "items": {
+        "$ref": "#/$defs/Tag"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "first_name",
+    "id",
+    "last_name",
+    "practice_id"
+  ],
+  "type": "object",
+  "$defs": {
+    "Address": {
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "default": "United States",
+          "type": "string"
+        },
+        "country_short": {
+          "default": "US",
+          "type": "string"
+        },
+        "line2": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state": {
+          "type": "string"
+        },
+        "status": {
+          "default": "active",
+          "type": "string"
+        },
+        "street": {
+          "type": "string"
+        },
+        "street_number": {
+          "type": "string"
+        },
+        "text": {
+          "readOnly": true
+        },
+        "zip_code": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "city",
+        "state",
+        "street",
+        "zip_code"
+      ],
+      "type": "object"
+    },
+    "BillingCycle": {
+      "properties": {
+        "billing_rule_id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "billing_rule_name": {
+          "type": "string"
+        },
+        "last_notification_time": {},
+        "last_notification_type": {
+          "type": "string"
+        },
+        "paused_by_patient_reply": {
+          "type": "boolean"
+        },
+        "status": {}
+      },
+      "type": "object"
+    },
+    "Email": {
+      "properties": {
+        "additional_priorities": {
+          "nullable": true
+        },
+        "all_priorities": {
+          "items": {},
+          "readOnly": true,
+          "type": "array"
+        },
+        "created_at": {
+          "nullable": true,
+          "readOnly": true
+        },
+        "email": {
+          "format": "email",
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "priority": {},
+        "source": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Guarantor": {
+      "properties": {
+        "address": {
+          "nullable": true
+        },
+        "collectly_id": {
+          "description": "Unique Collectly resource ID",
+          "readOnly": true,
+          "type": "string"
+        },
+        "created_at": {
+          "nullable": true,
+          "readOnly": true
+        },
+        "data": {
+          "nullable": true
+        },
+        "date_of_birth": {
+          "format": "date",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "external_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique resource ID from your integration",
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "middle_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "modified_at": {
+          "nullable": true,
+          "readOnly": true
+        },
+        "practice_id": {
+          "type": "string"
+        },
+        "ssn": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "first_name",
+        "id",
+        "last_name",
+        "practice_id"
+      ],
+      "type": "object"
+    },
+    "InsurancePolicy1": {
+      "properties": {
+        "collectly_id": {
+          "description": "Unique Collectly resource ID",
+          "readOnly": true,
+          "type": "string"
+        },
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "insurance_company_collectly_id": {
+          "format": "int32",
+          "type": "integer",
+          "writeOnly": true
+        },
+        "is_archived": {
+          "type": "boolean"
+        },
+        "member_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "patient_collectly_id": {
+          "format": "int32",
+          "type": "integer",
+          "writeOnly": true
+        },
+        "priority": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "insurance_company_collectly_id"
+      ],
+      "type": "object"
+    },
+    "Phone": {
+      "properties": {
+        "additional_priorities": {
+          "nullable": true
+        },
+        "all_priorities": {
+          "items": {},
+          "readOnly": true,
+          "type": "array"
+        },
+        "blocked": {
+          "type": "boolean"
+        },
+        "carrier": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at": {
+          "nullable": true,
+          "readOnly": true
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "priority": {},
+        "rcs_unavailable_until_at": {
+          "nullable": true
+        },
+        "source": {
+          "type": "string"
+        },
+        "type": {
+          "format": "int32",
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Tag": {
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": "object"
+    }
+  }
+}

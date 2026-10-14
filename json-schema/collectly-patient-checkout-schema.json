@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/collectly/main/json-schema/collectly-patient-checkout-schema.json",
+  "title": "Patient_Checkout",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/collectly-partners1-openapi.yml#/components/schemas/Patient_Checkout",
+  "properties": {
+    "account_payments": {
+      "items": {},
+      "type": "array"
+    },
+    "auto_charge_enabled": {
+      "description": "If true the payment method can be used without limits for auto-pay otherwise used limits from last signed consent",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "bank_account_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "bank_account_mask": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "bank_account_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "bank_account_subtype": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "bank_account_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "bank_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "bank_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "company": {
+      "nullable": true
+    },
+    "country": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "created_at": {
+      "nullable": true
+    },
+    "customer_id": {
+      "description": "Payment method owner's ID in payment provider account (e.g. Stripe)",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "exp_month": {
+      "description": "Payment method expiration month number",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "exp_year": {
+      "description": "Payment method expiration year in YYYY format (e.g. 2024)",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "external_payment_method_id": {
+      "description": "Payment method ID in payment provider account. This can be the ID of a card or bank account etc.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "fingerprint": {
+      "description": "Stripe fingerprint for card_present",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "funding": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "is_hsa_payment_method": {
+      "type": "boolean"
+    },
+    "last4": {
+      "description": "Last four numbers of the payment method number",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "last_signed_consent": {
+      "nullable": true
+    },
+    "modified_at": {
+      "nullable": true
+    },
+    "name": {
+      "description": "Display name",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "patient": {
+      "nullable": true
+    },
+    "payment_plan": {
+      "items": {},
+      "type": "array"
+    },
+    "payments": {
+      "items": {},
+      "type": "array"
+    },
+    "plaid_access_token": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "priority": {
+      "description": "Collectly attempts to charge payment methods in order from the highest to the lowest priority",
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "provided_card_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source": {
+      "description": "Source of the payment method",
+      "type": "string"
+    },
+    "source_terminal": {
+      "nullable": true
+    },
+    "source_user": {
+      "nullable": true
+    },
+    "status": {
+      "description": "Payment method activity status. Only `active` payment methods can be used for charging",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "type": {
+      "description": "Card brand or bank account",
+      "enum": [
+        "bank_account",
+        "amex",
+        "diners",
+        "discover",
+        "eftpos_au",
+        "jcb",
+        "mastercard",
+        "unionpay",
+        "visa",
+        "unknown"
+      ],
+      "maxLength": 12
+    },
+    "wallet_type": {
+      "enum": [
+        "amex_express_checkout",
+        "apple_pay",
+        "google_pay",
+        "masterpass",
+        "samsung_pay",
+        "sunbit",
+        "visa_checkout",
+        "link",
+        "cash",
+        "check",
+        "athena_ccp"
+      ],
+      "maxLength": 21,
+      "nullable": true
+    }
+  },
+  "type": "object"
+}

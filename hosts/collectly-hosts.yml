@@ -1,0 +1,52 @@
+generated: '2026-10-14'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 3
+  own: 3
+  other_domain: 0
+  platform: 0
+  roles:
+  - identity
+  - portal
+  - website
+hosts:
+- host: app.collectly.co
+  found_by:
+  - pointer
+  - apis[]
+  types:
+  - Login
+  serves:
+  - api
+  registrable_domain: collectly.co
+  role: identity
+  relation: own
+- host: docs.collectly.co
+  found_by:
+  - pointer
+  - apis[]
+  types:
+  - DeveloperPortal
+  - Documentation
+  - APIReference
+  - GettingStarted
+  serves:
+  - docs
+  registrable_domain: collectly.co
+  role: portal
+  relation: own
+- host: www.collectly.co
+  found_by:
+  - pointer
+  types:
+  - Blog
+  - TermsOfService
+  - PrivacyPolicy
+  - Compliance
+  - Website
+  serves: []
+  registrable_domain: collectly.co
+  role: website
+  relation: own
