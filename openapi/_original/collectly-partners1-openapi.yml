@@ -1,3 +1,5 @@
+# x-archived-from: collectly-partners1-openapi.yml
+# x-archived-on: 2026-10-16
 info:
   description: "### Pagination    \nRequests that return multiple items will be paginated to 100 items by default.\nYou can specify further pages with the ?page parameter. For some resources, you can also set a custom \npage size up to 1000 with the ?per_page parameter.\n                \n    X-Total-Count – Total number of results\n    X-Limit – Number results per page\n    X-Page-Last – Number of last page\n    X-Page – Current Page Number (starts from 0)        \n"
   title: partners1

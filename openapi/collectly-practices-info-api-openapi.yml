@@ -1,0 +1,261 @@
+openapi: 3.2.0
+info:
+  description: '### Pagination
+
+    Requests that return multiple items will be paginated to 100 items by default.
+
+    You can specify further pages with the ?page parameter. For some resources, you can also set a custom
+
+    page size up to 1000 with the ?per_page parameter.
+
+
+    X-Total-Count – Total number of results
+
+    X-Limit – Number results per page
+
+    X-Page-Last – Number of last page
+
+    X-Page – Current Page Number (starts from 0)'
+  title: partners1 Practices Info API
+  version: '1'
+servers:
+- url: sandbox.collectly.co/api/api/partners/v1
+security:
+- ApiKey: []
+tags:
+- name: practices_info
+paths:
+  /practices_info:
+    get:
+      description: Get an information about practices by company key
+      parameters:
+      - description: Page number of dataset
+        in: query
+        name: page
+        required: false
+        schema:
+          minimum: 0
+          type: integer
+      - description: Custom page size of dataset
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          type: integer
+      - description: String with a comma-separated list of parameters by which to sort the dataset. To specify a descending order, add a "-" character before the parameter. For example, `?sort=-created_at,id`
+        in: query
+        name: sort
+        required: false
+        schema:
+          example: ''
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientShort'
+          description: OK
+          headers:
+            X-Limit:
+              description: Number results per page. Requests that return multiple items will be paginated to 100 items by default. You can specify further pages with the `?page` parameter. For some resources, you can also set a custom page size up to 1000 with the `?per_page` parameter.
+              schema:
+                type: integer
+            X-Page:
+              description: Current Page Number (starts from 0)
+              schema:
+                type: integer
+            X-Page-Last:
+              description: Number of last page
+              schema:
+                type: integer
+            X-Total-Count:
+              description: Total number of results
+              schema:
+                type: integer
+      summary: List of public practices info
+      tags:
+      - practices_info
+      operationId: getPracticesInfo
+      x-operation-id-source: derived
+  /practices_info/{practices_info}:
+    get:
+      description: Get an information about practices by company key
+      parameters:
+      - description: Resource Identifier
+        in: path
+        name: practices_info
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientShort'
+          description: OK
+          headers: {}
+      summary: List of public practices info
+      tags:
+      - practices_info
+      operationId: getPracticesInfoByPracticesInfo
+      x-operation-id-source: derived
+components:
+  schemas:
+    ClientShort:
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressBase'
+        id:
+          readOnly: true
+          type: string
+        logo_url:
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        phone:
+          maxLength: 20
+          type:
+          - string
+          - 'null'
+        timezone:
+          type: string
+        voice_ai_hours_end:
+          type:
+          - string
+          - 'null'
+        voice_ai_hours_start:
+          type:
+          - string
+          - 'null'
+        work_hours_end:
+          type:
+          - string
+          - 'null'
+        work_hours_start:
+          type:
+          - string
+          - 'null'
+      required:
+      - address
+      type: object
+    AddressBase:
+      properties:
+        city:
+          type: string
+        country_short:
+          default: US
+          type: string
+        line2:
+          type:
+          - string
+          - 'null'
+        state:
+          type: string
+        status:
+          default: active
+          type: string
+        street:
+          type: string
+        zip_code:
+          type: string
+      required:
+      - city
+      - state
+      - street
+      - zip_code
+      type: object
+  securitySchemes:
+    ApiKey:
+      in: header
+      name: Authorization
+      type: apiKey
+x-provenance:
+  method: searched
+  source: https://docs.collectly.co/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://docs.collectly.co/reference/delete_practices-practice-id-insurance-policies-insurance-policies.md
+  - https://docs.collectly.co/reference/delete_practices-practice-id-patients-patient-id-checkout-patient-checkout.md
+  - https://docs.collectly.co/reference/delete_practices-practice-id-patients-patient-id-payment-methods-payment-methods.md
+  - https://docs.collectly.co/reference/delete_practices-practice-id-patients-patient-id-payment-plans-payment-plans.md
+  - https://docs.collectly.co/reference/delete_practices-practice-id-patients-patient-id-subscriptions-subscriptions.md
+  - https://docs.collectly.co/reference/get_company.md
+  - https://docs.collectly.co/reference/get_patient-forms-patient-forms.md
+  - https://docs.collectly.co/reference/get_patient-forms.md
+  - https://docs.collectly.co/reference/get_practices-info-practices-info.md
+  - https://docs.collectly.co/reference/get_practices-info.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-appointments-appointments.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-appointments.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-insurance-companies-insurance-companies.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-insurance-companies.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-insurance-policies-insurance-policies.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-insurance-policies.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-locations-locations.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-locations.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-payment-methods-payment-methods.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-payment-methods.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-payment-plans-payment-plans.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-payment-plans.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-statement-statements.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-statement.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-subscriptions-subscriptions.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-subscriptions.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patients.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-payments-payments.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-payments.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-providers-providers.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-providers.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-unmapped-patients-unmapped-patients.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-unmapped-patients.md
+  - https://docs.collectly.co/reference/get_practices-practices.md
+  - https://docs.collectly.co/reference/get_practices.md
+  - https://docs.collectly.co/reference/get_users-users.md
+  - https://docs.collectly.co/reference/get_users.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-appointments-appointments.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-insurance-companies-insurance-companies.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-insurance-policies-insurance-policies.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-locations-locations.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-patients-patient-id-payment-plans-payment-plans.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-patients-patient-id-subscriptions-subscriptions.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-patients-patients.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-providers-providers.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-unmapped-patients-unmapped-patients.md
+  - https://docs.collectly.co/reference/patch_practices-practices.md
+  - https://docs.collectly.co/reference/patch_users-users.md
+  - https://docs.collectly.co/reference/post_login.md
+  - https://docs.collectly.co/reference/post_patient-forms-patient-forms-sign.md
+  - https://docs.collectly.co/reference/post_patient-forms.md
+  - https://docs.collectly.co/reference/post_patient-lookup.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-appointments.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-insurance-companies.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-insurance-policies.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-locations.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-patients-patient-id-payment-methods-payment-methods-charge.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-patients-patient-id-payment-methods.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-patients-patient-id-payment-plans-request.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-patients-patient-id-payment-plans.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-patients-patient-id-statement.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-patients-patient-id-subscriptions.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-patients.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-payments-payment-id-refund.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-providers.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-store-payment-method.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-unmapped-patients.md
+  - https://docs.collectly.co/reference/post_practices-practices-post-apply-payment.md
+  - https://docs.collectly.co/reference/post_practices.md
+  - https://docs.collectly.co/reference/post_users.md
+  merge:
+    pages: 71
+    deduped: 186
+    conflicts_kept_first: 0

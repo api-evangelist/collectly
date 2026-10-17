@@ -134,19 +134,16 @@ common:
   url: https://www.collectly.co/
 
 apis:
-- name: Collectly Partners API
-  description: JWT-authenticated, practice-scoped REST API for integrating patient billing and payment workflows — practices, patients, appointments,
-    providers, locations, insurance companies and policies, statements, payments, refunds, and subscriptions — plus embeddable patient portal
-    components and webhooks.
+- aid: collectly:collectly-appointments-api
+  name: Collectly Appointments API
+  description: The appointments API from Collectly — 2 operation(s) for appointments.
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
   tags:
-  - Patient Payments
-  - Medical Billing
-  - Revenue Cycle Management
+  - appointments
   properties:
-  - url: openapi/collectly-partners1-openapi.yml
-    type: OpenAPI
+  - type: OpenAPI
+    url: openapi/collectly-appointments-api-openapi.yml
   - type: Documentation
     url: https://docs.collectly.co/
   - type: APIReference
@@ -159,9 +156,6 @@ apis:
     url: asyncapi/collectly-webhooks.yml
   - type: X-MCPServerCandidate
     url: mcp/collectly-mcp.yml
-    note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published
-      API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting
-      the artifact-type surfaces with a server that does not exist.'
   - type: Sandbox
     url: sandbox/collectly-sandbox.yml
   - type: Components
@@ -186,8 +180,1066 @@ apis:
     url: json-schema/collectly-payment-method-schema.json
   - type: JSONSchema
     url: json-schema/collectly-payment-plan-request-schema.json
-  aid: collectly:collectly-partners-api
-
+- aid: collectly:collectly-company-api-login-api
+  name: Collectly Company API Login API
+  description: The company_api_login API from Collectly — 1 operation(s) for company_api_login.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - company_api_login
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-company-api-login-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-company-api
+  name: Collectly Company API
+  description: The company API from Collectly — 1 operation(s) for company.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - company
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-company-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-insurance-companies-api
+  name: Collectly Insurance Companies API
+  description: The insurance_companies API from Collectly — 2 operation(s) for insurance_companies.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - insurance_companies
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-insurance-companies-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-insurance-policies-api
+  name: Collectly Insurance Policies API
+  description: The insurance_policies API from Collectly — 2 operation(s) for insurance_policies.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - insurance_policies
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-insurance-policies-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-locations-api
+  name: Collectly Locations API
+  description: The locations API from Collectly — 2 operation(s) for locations.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - locations
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-locations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-patient-checkout-api
+  name: Collectly Patient Checkout API
+  description: The patient_checkout API from Collectly — 1 operation(s) for patient_checkout.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - patient_checkout
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-patient-checkout-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-patient-checkout-lookup-api
+  name: Collectly Patient Checkout Lookup API
+  description: >-
+    The patient_checkout__lookup API from Collectly — 1 operation(s) for patient_checkout__lookup.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - patient_checkout__lookup
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-patient-checkout-lookup-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-patient-forms-api
+  name: Collectly Patient Forms API
+  description: The patient_forms API from Collectly — 3 operation(s) for patient_forms.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - patient_forms
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-patient-forms-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-patients-api
+  name: Collectly Patients API
+  description: The patients API from Collectly — 2 operation(s) for patients.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - patients
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-patients-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-payment-method-charge-api
+  name: Collectly Payment Method Charge API
+  description: The payment_method_charge API from Collectly — 1 operation(s) for payment_method_charge.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - payment_method_charge
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-payment-method-charge-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-payment-methods-api
+  name: Collectly Payment Methods API
+  description: The payment_methods API from Collectly — 2 operation(s) for payment_methods.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - payment_methods
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-payment-methods-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-payment-methods-store-api
+  name: Collectly Payment Methods Store API
+  description: The payment_methods_store API from Collectly — 1 operation(s) for payment_methods_store.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - payment_methods_store
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-payment-methods-store-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-payment-methods-store-with-collectly-id-api
+  name: Collectly Payment Methods Store With Collectly ID API
+  description: >-
+    The payment_methods_store_with_collectly_id API from Collectly — 1 operation(s) for payment_methods_store_with_collectly_id.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - payment_methods_store_with_collectly_id
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-payment-methods-store-with-collectly-id-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-payment-plan-request-api
+  name: Collectly Payment Plan Request API
+  description: The payment_plan_request API from Collectly — 1 operation(s) for payment_plan_request.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - payment_plan_request
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-payment-plan-request-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-payment-plans-api
+  name: Collectly Payment Plans API
+  description: The payment_plans API from Collectly — 2 operation(s) for payment_plans.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - payment_plans
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-payment-plans-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-payments-api
+  name: Collectly Payments API
+  description: The payments API from Collectly — 3 operation(s) for payments.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - payments
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-payments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-practices-api
+  name: Collectly Practices API
+  description: The practices API from Collectly — 3 operation(s) for practices.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - practices
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-practices-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-practices-info-api
+  name: Collectly Practices Info API
+  description: The practices_info API from Collectly — 2 operation(s) for practices_info.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - practices_info
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-practices-info-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-providers-api
+  name: Collectly Providers API
+  description: The providers API from Collectly — 2 operation(s) for providers.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - providers
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-providers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-statements-api
+  name: Collectly Statements API
+  description: The statements API from Collectly — 2 operation(s) for statements.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - statements
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-statements-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-subscriptions-api
+  name: Collectly Subscriptions API
+  description: The subscriptions API from Collectly — 2 operation(s) for subscriptions.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - subscriptions
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-subscriptions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-unmapped-patients-api
+  name: Collectly Unmapped Patients API
+  description: The unmapped_patients API from Collectly — 2 operation(s) for unmapped_patients.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - unmapped_patients
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-unmapped-patients-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
+- aid: collectly:collectly-users-api
+  name: Collectly Users API
+  description: The users API from Collectly — 2 operation(s) for users.
+  humanURL: https://docs.collectly.co/
+  baseURL: https://app.collectly.co/api/partners/v1
+  tags:
+  - users
+  properties:
+  - type: OpenAPI
+    url: openapi/collectly-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.collectly.co/
+  - type: APIReference
+    url: https://docs.collectly.co/reference
+  - type: Authentication
+    url: authentication/collectly-authentication.yml
+  - type: Conventions
+    url: conventions/collectly-conventions.yml
+  - type: Webhooks
+    url: asyncapi/collectly-webhooks.yml
+  - type: X-MCPServerCandidate
+    url: mcp/collectly-mcp.yml
+  - type: Sandbox
+    url: sandbox/collectly-sandbox.yml
+  - type: Components
+    url: components/collectly-components.yml
+  - type: DataModel
+    url: data-model/collectly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/collectly-lifecycle.yml
+  - type: Conformance
+    url: conformance/collectly-conformance.yml
+  - type: LLMsTxt
+    url: llms/collectly-llms.txt
+  - type: JSONSchema
+    url: json-schema/collectly-patient-checkout-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-appointment-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-method-schema.json
+  - type: JSONSchema
+    url: json-schema/collectly-payment-plan-request-schema.json
 x-enrichment:
   date: '2026-07-19'
   status: backfilled

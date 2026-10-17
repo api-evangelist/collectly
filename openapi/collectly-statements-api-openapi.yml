@@ -1,0 +1,789 @@
+openapi: 3.2.0
+info:
+  description: '### Pagination
+
+    Requests that return multiple items will be paginated to 100 items by default.
+
+    You can specify further pages with the ?page parameter. For some resources, you can also set a custom
+
+    page size up to 1000 with the ?per_page parameter.
+
+
+    X-Total-Count – Total number of results
+
+    X-Limit – Number results per page
+
+    X-Page-Last – Number of last page
+
+    X-Page – Current Page Number (starts from 0)'
+  title: partners1 Statements API
+  version: '1'
+servers:
+- url: sandbox.collectly.co/api/api/partners/v1
+security:
+- ApiKey: []
+tags:
+- name: Statements
+paths:
+  /practices/{practice_id}/patients/{patient_id}/statement:
+    get:
+      description: 'This endpoint is an alternative data model where you do not need to push
+
+        payments and allocations separately. You just POST a complete
+
+        list of outstanding visits/charges and this statement will be presented
+
+        to the patient as POSTed.
+
+        /visit endpoint is ignored if you POSTed the statement for the patient
+
+        /payments that have the post_date before the statement are also ignored'
+      parameters:
+      - description: Practice ID in which the requested resource exists
+        in: path
+        name: practice_id
+        required: true
+        schema:
+          type: string
+      - description: Patient ID from your integration who owns the resource
+        in: path
+        name: patient_id
+        required: true
+        schema:
+          type: string
+      - description: Page number of dataset
+        in: query
+        name: page
+        required: false
+        schema:
+          minimum: 0
+          type: integer
+      - description: Custom page size of dataset
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          type: integer
+      - description: String with a comma-separated list of parameters by which to sort the dataset. To specify a descending order, add a "-" character before the parameter. For example, `?sort=-created_at,id`
+        in: query
+        name: sort
+        required: false
+        schema:
+          example: ''
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SnapshotPartner'
+          description: OK
+          headers:
+            X-Limit:
+              description: Number results per page. Requests that return multiple items will be paginated to 100 items by default. You can specify further pages with the `?page` parameter. For some resources, you can also set a custom page size up to 1000 with the `?per_page` parameter.
+              schema:
+                type: integer
+            X-Page:
+              description: Current Page Number (starts from 0)
+              schema:
+                type: integer
+            X-Page-Last:
+              description: Number of last page
+              schema:
+                type: integer
+            X-Total-Count:
+              description: Total number of results
+              schema:
+                type: integer
+      summary: Get current patient statement
+      tags:
+      - Statements
+      operationId: getPracticesByPracticeIdPatientsByPatientIdStatement
+      x-operation-id-source: derived
+    post:
+      description: 'POSTing a statement will create a new billing cycle for a patient in case there were no active billing cycle yet (patient balance was <= zero). Please pass only IDs for connected entities, not the full objects: patient_id, location_id, provider_id'
+      parameters:
+      - description: Practice ID in which the requested resource exists
+        in: path
+        name: practice_id
+        required: true
+        schema:
+          type: string
+      - description: Patient ID from your integration who owns the resource
+        in: path
+        name: patient_id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SnapshotPartner'
+        description: Request Body
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SnapshotPartner'
+          description: OK
+          headers: {}
+      summary: Update current patient statement
+      tags:
+      - Statements
+      operationId: postPracticesByPracticeIdPatientsByPatientIdStatement
+      x-operation-id-source: derived
+  /practices/{practice_id}/patients/{patient_id}/statement/{statements}:
+    get:
+      description: 'This endpoint is an alternative data model where you do not need to push
+
+        payments and allocations separately. You just POST a complete
+
+        list of outstanding visits/charges and this statement will be presented
+
+        to the patient as POSTed.
+
+        /visit endpoint is ignored if you POSTed the statement for the patient
+
+        /payments that have the post_date before the statement are also ignored'
+      parameters:
+      - description: Practice ID in which the requested resource exists
+        in: path
+        name: practice_id
+        required: true
+        schema:
+          type: string
+      - description: Patient ID from your integration who owns the resource
+        in: path
+        name: patient_id
+        required: true
+        schema:
+          type: string
+      - description: Resource Identifier
+        in: path
+        name: statements
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SnapshotPartner'
+          description: OK
+          headers: {}
+      summary: Get current patient statement
+      tags:
+      - Statements
+      operationId: getPracticesByPracticeIdPatientsByPatientIdStatementByStatements
+      x-operation-id-source: derived
+components:
+  schemas:
+    ERALineItem:
+      properties:
+        adjustments:
+          items:
+            $ref: '#/components/schemas/Adjustment'
+          type: array
+        allowed:
+          type:
+          - number
+          - 'null'
+        billed:
+          type: number
+        paid:
+          type: number
+        remark:
+          type:
+          - string
+          - 'null'
+        service_code:
+          type: string
+        service_date_end:
+          format: date
+          type:
+          - string
+          - 'null'
+        service_date_start:
+          format: date
+          type:
+          - string
+          - 'null'
+        units:
+          format: int32
+          type:
+          - integer
+          - 'null'
+      required:
+      - billed
+      - paid
+      - service_code
+      type: object
+    SnapshotVisitCharge:
+      properties:
+        adjustment:
+          readOnly: true
+        allowed_amount:
+          type:
+          - number
+          - 'null'
+        billed_amount:
+          type:
+          - number
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        id:
+          type: string
+        ins_paid:
+          type:
+          - number
+          - 'null'
+        note:
+          type:
+          - string
+          - 'null'
+        procedure_code:
+          type:
+          - string
+          - 'null'
+        pt_adjustment:
+          type:
+          - number
+          - 'null'
+        pt_amount:
+          type:
+          - number
+          - 'null'
+        pt_balance:
+          type:
+          - number
+          - 'null'
+        pt_paid:
+          type:
+          - number
+          - 'null'
+        rx_number:
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      type: object
+    InsurancePayment:
+      properties:
+        adjustment:
+          type:
+          - number
+          - 'null'
+        allowed_amount:
+          type:
+          - number
+          - 'null'
+        coins_amount:
+          type:
+          - number
+          - 'null'
+        company_external_id:
+          type:
+          - string
+          - 'null'
+        date:
+          format: date
+          type:
+          - string
+          - 'null'
+        deduct_amount:
+          type:
+          - number
+          - 'null'
+        external_id:
+          type: string
+        extra:
+          type:
+          - object
+          - 'null'
+        ins_paid:
+          type:
+          - number
+          - 'null'
+        member_balance:
+          type:
+          - number
+          - 'null'
+        withheld_amount:
+          type:
+          - number
+          - 'null'
+      type: object
+    SnapshotData:
+      properties:
+        balance_past_120_days:
+          type:
+          - number
+          - 'null'
+        payments:
+          items:
+            $ref: '#/components/schemas/SnapshotPayment'
+          type: array
+        visits:
+          items:
+            $ref: '#/components/schemas/SnapshotVisit'
+          type: array
+      type: object
+    SnapshotPayment:
+      properties:
+        allocations:
+          items:
+            $ref: '#/components/schemas/SnapshotPaymentAllocation'
+          type: array
+        amount:
+          type: number
+        collectly_id:
+          type: string
+        id:
+          type: string
+        payment_type:
+          enum:
+          - payment
+          - copay
+          - refund
+          - part_ref
+          - autodeb
+          - collect
+          type: string
+        post_date:
+          description: ISO-8601 date format
+          format: date
+          type: string
+        source_payment_id:
+          type: string
+      required:
+      - amount
+      - id
+      type: object
+    VisitProvider:
+      properties:
+        display_name:
+          type: string
+        external_id:
+          type: string
+        first_name:
+          type:
+          - string
+          - 'null'
+        id:
+          format: int32
+          type: integer
+        last_name:
+          type:
+          - string
+          - 'null'
+      type: object
+    VisitInsurancePolicy:
+      properties:
+        company_external_id:
+          type:
+          - string
+          - 'null'
+        group_id:
+          type: string
+        insurance_name:
+          type: string
+        member_id:
+          type: string
+        policy_external_id:
+          type:
+          - string
+          - 'null'
+        priority:
+          enum:
+          - primary
+          - secondary
+          - tertiary
+          - other
+          type: string
+        state:
+          allOf:
+          - $ref: '#/components/schemas/InsurancePolicyState'
+          readOnly: true
+      type: object
+    SnapshotAppointment:
+      properties:
+        external_id:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    Discount:
+      properties:
+        amount:
+          type:
+          - number
+          - 'null'
+        description:
+          type: string
+        external_id:
+          type:
+          - string
+          - 'null'
+        valid_until:
+          format: date
+          type:
+          - string
+          - 'null'
+      type: object
+    _Location:
+      properties:
+        collectly_id:
+          readOnly: true
+          type: string
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      type: object
+    SnapshotLocation:
+      properties:
+        data:
+          type: object
+        external_id:
+          type:
+          - string
+          - 'null'
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        tax_id:
+          type:
+          - string
+          - 'null'
+      type: object
+    SnapshotPaymentAllocation:
+      properties:
+        amount:
+          type: number
+        charge_id:
+          type: string
+        id:
+          type: string
+        visit_id:
+          type: string
+      required:
+      - amount
+      - id
+      type: object
+    SnapshotPartner:
+      properties:
+        allowed_amount:
+          readOnly: true
+          type:
+          - number
+          - 'null'
+        billed_amount:
+          readOnly: true
+          type:
+          - number
+          - 'null'
+        created_at:
+          readOnly: true
+        data:
+          allOf:
+          - $ref: '#/components/schemas/SnapshotData'
+          default:
+            visits: []
+        id:
+          format: int32
+          readOnly: true
+          type: integer
+        ins_paid:
+          readOnly: true
+          type:
+          - number
+          - 'null'
+        modified_at:
+          readOnly: true
+        patient_id:
+          readOnly: true
+          type: string
+        practice_id:
+          type: string
+        pt_amount:
+          readOnly: true
+          type: number
+        pt_balance:
+          readOnly: true
+          type: number
+      required:
+      - practice_id
+      type: object
+    Adjustment:
+      properties:
+        amount:
+          type: number
+        group:
+          type: string
+        reason:
+          type: string
+      required:
+      - amount
+      - group
+      - reason
+      type: object
+    SnapshotVisit:
+      properties:
+        adjustment:
+          readOnly: true
+        allowed_amount:
+          type: number
+        appointment:
+          allOf:
+          - $ref: '#/components/schemas/SnapshotAppointment'
+        billed_amount:
+          type: number
+        billing_hold_reason:
+          enum:
+          - not_billable_financial_class
+          - active_subscription_cycle
+          - bad_debt
+          - candid_excluded_payer
+          - excluded_cpt_code
+          - excluded_tag
+          type:
+          - string
+          - 'null'
+        billing_hold_type:
+          enum:
+          - pending
+          - archived
+          - disabled_location
+          - disabled_provider
+          - written_off
+          type:
+          - string
+          - 'null'
+        billing_location:
+          $ref: '#/components/schemas/SnapshotLocation'
+        billing_provider:
+          $ref: '#/components/schemas/VisitProvider'
+        charges:
+          items:
+            $ref: '#/components/schemas/SnapshotVisitCharge'
+          type: array
+        collections_status:
+          type:
+          - string
+          - 'null'
+        discounts:
+          items:
+            $ref: '#/components/schemas/Discount'
+          type: array
+        ehr_discounts:
+          items:
+            $ref: '#/components/schemas/Discount'
+          type: array
+        external_id:
+          type: string
+        id:
+          type: string
+        ins_paid:
+          type: number
+        insurance_payments:
+          items:
+            $ref: '#/components/schemas/InsurancePayment'
+          type:
+          - array
+          - 'null'
+        insurance_policies:
+          items:
+            $ref: '#/components/schemas/VisitInsurancePolicy'
+          type:
+          - array
+          - 'null'
+        location:
+          $ref: '#/components/schemas/_Location'
+        location_id:
+          type:
+          - string
+          - 'null'
+          writeOnly: true
+        meta: {}
+        notes:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        patient_name:
+          type:
+          - string
+          - 'null'
+        provider:
+          $ref: '#/components/schemas/_Provider'
+        provider_id:
+          type:
+          - string
+          - 'null'
+          writeOnly: true
+        pt_adjustment:
+          type: number
+        pt_amount:
+          type: number
+        pt_bad_debt:
+          type:
+          - number
+          - 'null'
+        pt_balance:
+          type: number
+        pt_balance_on_hold:
+          type: number
+        pt_paid:
+          type: number
+        raw_adjustments:
+          items:
+            type: object
+          type:
+          - array
+          - 'null'
+        service_date:
+          format: date
+          type: string
+        visit_pt_adjustment:
+          type: number
+      required:
+      - id
+      - location_id
+      - provider_id
+      - service_date
+      type: object
+    InsurancePolicyState:
+      properties:
+        claim_adjustments:
+          items:
+            $ref: '#/components/schemas/Adjustment'
+          type: array
+        claim_status:
+          type: string
+        claim_status_description:
+          type: string
+        codes_description:
+          items:
+            type: string
+          type: array
+        line_items:
+          items:
+            $ref: '#/components/schemas/ERALineItem'
+          type: array
+      type: object
+    _Provider:
+      properties:
+        collectly_id:
+          readOnly: true
+          type: string
+        first_name:
+          type: string
+        id:
+          type: string
+        last_name:
+          type: string
+      required:
+      - id
+      type: object
+  securitySchemes:
+    ApiKey:
+      in: header
+      name: Authorization
+      type: apiKey
+x-provenance:
+  method: searched
+  source: https://docs.collectly.co/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://docs.collectly.co/reference/delete_practices-practice-id-insurance-policies-insurance-policies.md
+  - https://docs.collectly.co/reference/delete_practices-practice-id-patients-patient-id-checkout-patient-checkout.md
+  - https://docs.collectly.co/reference/delete_practices-practice-id-patients-patient-id-payment-methods-payment-methods.md
+  - https://docs.collectly.co/reference/delete_practices-practice-id-patients-patient-id-payment-plans-payment-plans.md
+  - https://docs.collectly.co/reference/delete_practices-practice-id-patients-patient-id-subscriptions-subscriptions.md
+  - https://docs.collectly.co/reference/get_company.md
+  - https://docs.collectly.co/reference/get_patient-forms-patient-forms.md
+  - https://docs.collectly.co/reference/get_patient-forms.md
+  - https://docs.collectly.co/reference/get_practices-info-practices-info.md
+  - https://docs.collectly.co/reference/get_practices-info.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-appointments-appointments.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-appointments.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-insurance-companies-insurance-companies.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-insurance-companies.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-insurance-policies-insurance-policies.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-insurance-policies.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-locations-locations.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-locations.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-payment-methods-payment-methods.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-payment-methods.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-payment-plans-payment-plans.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-payment-plans.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-statement-statements.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-statement.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-subscriptions-subscriptions.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patient-id-subscriptions.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients-patients.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-patients.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-payments-payments.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-payments.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-providers-providers.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-providers.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-unmapped-patients-unmapped-patients.md
+  - https://docs.collectly.co/reference/get_practices-practice-id-unmapped-patients.md
+  - https://docs.collectly.co/reference/get_practices-practices.md
+  - https://docs.collectly.co/reference/get_practices.md
+  - https://docs.collectly.co/reference/get_users-users.md
+  - https://docs.collectly.co/reference/get_users.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-appointments-appointments.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-insurance-companies-insurance-companies.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-insurance-policies-insurance-policies.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-locations-locations.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-patients-patient-id-payment-plans-payment-plans.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-patients-patient-id-subscriptions-subscriptions.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-patients-patients.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-providers-providers.md
+  - https://docs.collectly.co/reference/patch_practices-practice-id-unmapped-patients-unmapped-patients.md
+  - https://docs.collectly.co/reference/patch_practices-practices.md
+  - https://docs.collectly.co/reference/patch_users-users.md
+  - https://docs.collectly.co/reference/post_login.md
+  - https://docs.collectly.co/reference/post_patient-forms-patient-forms-sign.md
+  - https://docs.collectly.co/reference/post_patient-forms.md
+  - https://docs.collectly.co/reference/post_patient-lookup.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-appointments.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-insurance-companies.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-insurance-policies.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-locations.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-patients-patient-id-payment-methods-payment-methods-charge.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-patients-patient-id-payment-methods.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-patients-patient-id-payment-plans-request.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-patients-patient-id-payment-plans.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-patients-patient-id-statement.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-patients-patient-id-subscriptions.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-patients.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-payments-payment-id-refund.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-providers.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-store-payment-method.md
+  - https://docs.collectly.co/reference/post_practices-practice-id-unmapped-patients.md
+  - https://docs.collectly.co/reference/post_practices-practices-post-apply-payment.md
+  - https://docs.collectly.co/reference/post_practices.md
+  - https://docs.collectly.co/reference/post_users.md
+  merge:
+    pages: 71
+    deduped: 186
+    conflicts_kept_first: 0
