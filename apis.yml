@@ -140,6 +140,8 @@ apis:
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
   tags:
+  - Appointments
+  tags_raw:
   - appointments
   properties:
   - type: OpenAPI
@@ -185,7 +187,8 @@ apis:
   description: The company_api_login API from Collectly — 1 operation(s) for company_api_login.
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
-  tags:
+  tags: []
+  tags_raw:
   - company_api_login
   properties:
   - type: OpenAPI
@@ -232,6 +235,8 @@ apis:
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
   tags:
+  - Company
+  tags_raw:
   - company
   properties:
   - type: OpenAPI
@@ -278,6 +283,8 @@ apis:
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
   tags:
+  - Insurance Companies
+  tags_raw:
   - insurance_companies
   properties:
   - type: OpenAPI
@@ -323,7 +330,8 @@ apis:
   description: The insurance_policies API from Collectly — 2 operation(s) for insurance_policies.
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
-  tags:
+  tags: []
+  tags_raw:
   - insurance_policies
   properties:
   - type: OpenAPI
@@ -370,6 +378,8 @@ apis:
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
   tags:
+  - Location
+  tags_raw:
   - locations
   properties:
   - type: OpenAPI
@@ -415,7 +425,8 @@ apis:
   description: The patient_checkout API from Collectly — 1 operation(s) for patient_checkout.
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
-  tags:
+  tags: []
+  tags_raw:
   - patient_checkout
   properties:
   - type: OpenAPI
@@ -509,6 +520,8 @@ apis:
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
   tags:
+  - Patient Forms
+  tags_raw:
   - patient_forms
   properties:
   - type: OpenAPI
@@ -555,6 +568,8 @@ apis:
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
   tags:
+  - Patients
+  tags_raw:
   - patients
   properties:
   - type: OpenAPI
@@ -600,7 +615,8 @@ apis:
   description: The payment_method_charge API from Collectly — 1 operation(s) for payment_method_charge.
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
-  tags:
+  tags: []
+  tags_raw:
   - payment_method_charge
   properties:
   - type: OpenAPI
@@ -647,6 +663,8 @@ apis:
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
   tags:
+  - Payment Methods
+  tags_raw:
   - payment_methods
   properties:
   - type: OpenAPI
@@ -692,7 +710,8 @@ apis:
   description: The payment_methods_store API from Collectly — 1 operation(s) for payment_methods_store.
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
-  tags:
+  tags: []
+  tags_raw:
   - payment_methods_store
   properties:
   - type: OpenAPI
@@ -739,7 +758,8 @@ apis:
     The payment_methods_store_with_collectly_id API from Collectly — 1 operation(s) for payment_methods_store_with_collectly_id.
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
-  tags:
+  tags: []
+  tags_raw:
   - payment_methods_store_with_collectly_id
   properties:
   - type: OpenAPI
@@ -785,7 +805,8 @@ apis:
   description: The payment_plan_request API from Collectly — 1 operation(s) for payment_plan_request.
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
-  tags:
+  tags: []
+  tags_raw:
   - payment_plan_request
   properties:
   - type: OpenAPI
@@ -832,6 +853,8 @@ apis:
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
   tags:
+  - Payment Plans
+  tags_raw:
   - payment_plans
   properties:
   - type: OpenAPI
@@ -878,6 +901,8 @@ apis:
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
   tags:
+  - Payments
+  tags_raw:
   - payments
   properties:
   - type: OpenAPI
@@ -924,6 +949,8 @@ apis:
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
   tags:
+  - Practices
+  tags_raw:
   - practices
   properties:
   - type: OpenAPI
@@ -969,7 +996,8 @@ apis:
   description: The practices_info API from Collectly — 2 operation(s) for practices_info.
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
-  tags:
+  tags: []
+  tags_raw:
   - practices_info
   properties:
   - type: OpenAPI
@@ -1016,6 +1044,8 @@ apis:
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
   tags:
+  - Providers
+  tags_raw:
   - providers
   properties:
   - type: OpenAPI
@@ -1062,6 +1092,8 @@ apis:
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
   tags:
+  - Statements
+  tags_raw:
   - statements
   properties:
   - type: OpenAPI
@@ -1108,6 +1140,8 @@ apis:
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
   tags:
+  - Subscription
+  tags_raw:
   - subscriptions
   properties:
   - type: OpenAPI
@@ -1153,7 +1187,8 @@ apis:
   description: The unmapped_patients API from Collectly — 2 operation(s) for unmapped_patients.
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
-  tags:
+  tags: []
+  tags_raw:
   - unmapped_patients
   properties:
   - type: OpenAPI
@@ -1200,6 +1235,8 @@ apis:
   humanURL: https://docs.collectly.co/
   baseURL: https://app.collectly.co/api/partners/v1
   tags:
+  - User
+  tags_raw:
   - users
   properties:
   - type: OpenAPI
